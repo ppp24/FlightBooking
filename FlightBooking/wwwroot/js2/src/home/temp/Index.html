@@ -1,0 +1,417 @@
+﻿
+
+
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url('images/banner.jpg'); background-size:cover" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-12 text-center" style="margin-top:15% ">
+                <div class="slider-text-inner">
+                    <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to any corner of the world, without going around in circles</p>
+                    <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make Your Travel Amazing With Us</h1>
+                    <!-- Search Flights Form -->
+                    <div class="booking-form">
+                        <form class="form" id="bookingForm">
+                            <div class="form-group">
+                                <div class="form-checkbox">
+                                    <label for="roundtrip">
+                                        <input type="radio" id="roundtrip" name="flight-type">
+                                        <span></span>Roundtrip
+                                    </label>
+                                    <label for="one-way">
+                                        <input type="radio" id="oneway" name="flight-type">
+                                        <span></span>One way
+                                    </label>
+                                    <!--<label for="multi-city">
+                                        <input type="radio" id="multi-city" name="flight-type">
+                                        <span></span>Multi-City
+                                    </label>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <span class="form-label">Flying from</span>
+                                        <select class="form-control" id="fromAirport" required></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <span class="form-label">Flying to</span>
+                                        <select class="form-control" id="toAirport" required></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <span class="form-label">Departing</span>
+                                        <input class="form-control" type="date" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <span class="form-label">Returning</span>
+                                        <input class="form-control" type="date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Adults (18+)</span>
+                                        <input type="number" class="form-control" min="1" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Children (0-17)</span>
+                                        <input type="number" class="form-control" min="0" value="0">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Travel class</span>
+                                        <select class="form-control">
+                                            <option>Economy class</option>
+                                            <!--<option>Business class</option>-->
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="directFlightsCheckbox">
+                                            <input type="checkbox" id="directFlightsCheckbox">
+                                            Direct Flights Only
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-btn">
+                                    <button class="submit-btn" id="showflights">Show flights</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="special-container">
+    <h1 style="align-content:center">Special Offers</h1>
+    <div class="cardcontainer">
+        <article class="card__article">
+            <img src="/images/samoa.jpg" alt="image" class="card__img">
+
+            <div class="card__data">
+                <span class="card__description">Fly to</span>
+                <h2 class="card__title">Samoa</h2>
+                <a href="#" class="card__button">from $600 FJD</a>
+            </div>
+        </article>
+
+        <article class="card__article">
+            <img src="/images/rotuma.jpg" alt="image" class="card__img">
+
+            <div class="card__data">
+                <span class="card__description">Fly to</span>
+                <h2 class="card__title">Rotuma</h2>
+                <a href="#" class="card__button">from $799 FJD</a>
+            </div>
+        </article>
+
+        <article class="card__article">
+            <img src="/images/kadavu.jpg" alt="image" class="card__img">
+
+            <div class="card__data">
+                <span class="card__description">Fly to</span>
+                <h2 class="card__title">Kadavu</h2>
+                <a href="#" class="card__button">from $656 FJD</a>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="/images/vanuatu.jpg" alt="image" class="card__img">
+
+            <div class="card__data">
+                <span class="card__description">Fly to</span>
+                <h2 class="card__title">Vanutu</h2>
+                <a href="#" class="card__button">from $856 FJD</a>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="/images/vanuatu.jpg" alt="image" class="card__img">
+
+            <div class="card__data">
+                <span class="card__description">Fly to</span>
+                <h2 class="card__title">Vanutu</h2>
+                <a href="#" class="card__button">from $856 FJD</a>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="/images/vanuatu.jpg" alt="image" class="card__img">
+
+            <div class="card__data">
+                <span class="card__description">Fly to</span>
+                <h2 class="card__title">Vanutu</h2>
+                <a href="#" class="card__button">from $856 FJD</a>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+<footer class="text-center text-lg-start text-white"
+        style="background-color: #4fa3e3; margin-top:185px">
+    <div class="container p-4 pb-0">
+        <section class="">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 mb-5 mb-md-0">
+                    <p>
+                        For best rates and travel experience choose Pacific Link
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase"></h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-white">Company</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Customer Care</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase"></h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-white">Flights to Samoa</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Flights to Kadavu</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Flights to Rotuma</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Flights to Vanuatu</a>
+                        </li>
+                    </ul>
+                </div>
+        </section>
+        <hr class="mb-4" />
+        <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+                <span class="me-3">Register to book </span>
+                <button type="button" class="btn btn-outline-light btn-rounded">
+                    Sign up!
+                </button>
+            </p>
+        </section>
+        <hr class="mb-4" />
+    </div>
+    <div class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2024 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">PacificLink.com</a>
+    </div>
+</footer>
+
+
+<style>
+    :root {
+      
+        --first-color: hsl(82, 60%, 28%);
+        --title-color: hsl(0, 0%, 15%);
+        --text-color: hsl(0, 0%, 35%);
+        --body-color: hsl(0, 0%, 95%);
+        --container-color: hsl(0, 0%, 100%);
+        --body-font: "Poppins", sans-serif;
+        --h2-font-size: 1.25rem;
+        --small-font-size: .813rem;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: 300px;
+    }
+
+    /*=============== CARD ===============*/
+    .special-container {
+        display: grid;
+        place-items: center;
+        margin-inline: 1.5rem;
+        padding-block: 5rem;
+    }
+
+    .cardcontainer {
+        display: grid;
+        row-gap: 3.5rem;
+    }
+
+    .card__article {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card__img {
+        width: 328px;
+        border-radius: 1.5rem;
+    }
+
+    .card__data {
+        width: 280px;
+        background-color: var(--container-color);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+        border-radius: 1rem;
+        position: absolute;
+        bottom: -9rem;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        opacity: 0;
+        transition: opacity 1s 1s;
+    }
+
+    .card__description {
+        display: block;
+        font-size: var(--small-font-size);
+        margin-bottom: .25rem;
+    }
+
+    .card__title {
+        font-size: var(--h2-font-size);
+        font-weight: 500;
+        color: var(--title-color);
+        margin-bottom: .75rem;
+    }
+
+    .card__button {
+        text-decoration: none;
+        font-size: var(--small-font-size);
+        font-weight: 500;
+        color: var(--first-color);
+    }
+
+        .card__button:hover {
+            text-decoration: underline;
+        }
+
+    /* Naming animations in hover */
+    .card__article:hover .card__data {
+        animation: show-data 1s forwards;
+        opacity: 1;
+        transition: opacity .3s;
+    }
+
+    .card__article:hover {
+        animation: remove-overflow 2s forwards;
+    }
+
+    .card__article:not(:hover) {
+        animation: show-overflow 2s forwards;
+    }
+
+        .card__article:not(:hover) .card__data {
+            animation: remove-data 1s forwards;
+        }
+
+    /* Card animation */
+    @keyframes show-data {
+        50% {
+            transform: translateY(-10rem);
+        }
+
+        100% {
+            transform: translateY(-7rem);
+        }
+    }
+
+    @keyframes remove-overflow {
+        to {
+            overflow: initial;
+        }
+    }
+
+    @keyframes remove-data {
+        0% {
+            transform: translateY(-7rem);
+        }
+
+        50% {
+            transform: translateY(-10rem);
+        }
+
+        100% {
+            transform: translateY(.5rem);
+        }
+    }
+
+    @keyframes show-overflow {
+        0% {
+            overflow: initial;
+            pointer-events: none;
+        }
+
+        50% {
+            overflow: hidden;
+        }
+    }
+
+    /*=============== BREAKPOINTS ===============*/
+    /* For small devices */
+    @media screen and (max-width: 340px) {
+        .special-container {
+            margin-inline: 1rem;
+        }
+
+        .card__data {
+            width: 250px;
+            padding: 1rem;
+        }
+    }
+
+    /* For medium devices */
+    @media screen and (min-width: 768px) {
+        .cardcontainer {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 1.5rem;
+        }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1120px) {
+        .special-container {
+            height: 100vh;
+        }
+
+        .cardcontainer {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card__img {
+            width: 348px;
+        }
+
+        .card__data {
+            width: 316px;
+            padding-inline: 2.5rem;
+        }
+    }
+</style>
+

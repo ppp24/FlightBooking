@@ -1,0 +1,67 @@
+﻿
+
+
+
+<div class="modal" id="addFlimodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Flight</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body modal-custom-font">
+                <form class="form" id="addformFlight">
+                    <div class="form-group">
+                        <label for="fligname">Flight Name: <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id="fligname" name="fligname" placeholder="Flight Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="flignum">Flight Number: <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id="flignum" name="flignum" placeholder="Flight Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="departureAirport">Departure Airport:</label>
+                        <select id="departureAirport" class="form-control" name="departureAirport">
+                            <option value="">Select Departure Airport</option>
+                        </select>
+                        <label for="departureTime">Departure Time:</label>
+                        <input type="datetime-local" class="form-control" id="departureTime" name="departureTime">
+                    </div>
+                    <div class="form-group">
+                        <label for="arrivalAirport">Arrival Airport:</label>
+                        <select id="arrivalAirport" class="form-control" name="arrivalAirport">
+                            <option value="">Select Arrival Airport</option>
+                        </select>
+                        <label for="arrivalTime">Arrival Time:</label>
+                        <input type="datetime-local" class="form-control" id="arrivalTime" name="arrivalTime">
+                    </div>
+                    <div class="form-group">
+                        <label for="economyPrice">Economy Class Price:</label>
+                        <input type="number" class="form-control" id="economyPrice" name="economyPrice" placeholder="Enter price for economy class">
+                    </div>
+                    <div class="form-group">
+                        <label for="businessPrice">Business Class Price:</label>
+                        <input type="number" class="form-control" id="businessPrice" name="businessPrice" placeholder="Enter price for business class">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select class="form-control" id="status" name="status" style="background-color: #4fa3e3";>
+                            <option value="1">Scheduled</option>
+                            <option value="2">Departed</option>
+                            <option value="3">Landed</option>
+                            <option value="4">Cancelled</option>
+                            <option value="5">Delayed</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnAddFlight" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

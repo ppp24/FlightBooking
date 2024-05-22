@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+
+
+<h1>All Users</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+           
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <button type="button" class="btn btn-info" title="Change Role">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary" title="Edit">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger" title="Delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

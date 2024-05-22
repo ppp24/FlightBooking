@@ -1,0 +1,86 @@
+﻿
+<div class="container mt-2">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="airports-tab" data-bs-toggle="tab" data-bs-target="#airports" type="button" role="tab" aria-controls="airports" aria-selected="true">Airports</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="flights-tab" data-bs-toggle="tab" data-bs-target="#flights" type="button" role="tab" aria-controls="flights" aria-selected="false">Flights</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="flighthistory-tab" data-bs-toggle="tab" data-bs-target="#flighthistory" type="button" role="tab" aria-controls="flighthistroy" aria-selected="false">Flight History</button>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="airports" role="tabpanel" aria-labelledby="airports-tab">
+            <br />
+            <button type="button" id="addbtn" class="btn btn-primary btn-md" data-bs-toggle="tooltip" data-toggle="modal">
+                Add New Airport
+            </button>
+            <!-- Table for Airports -->
+            <table class="table table-striped table-bordered table-sm" id="airporttbl">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Name</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody id="airportbody">
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="flights" role="tabpanel" aria-labelledby="flights-tab">
+            <button type="button" id="addflight" class="btn btn-primary my-3">Add Flight</button>
+            <!-- Table for Flights -->
+            <p>Scheduled Flights</p>
+            <table class="table table-striped table-bordered table-sm" id="flight_tbl">
+                <thead>
+                    <tr>
+                        <th>Flight Name</th>
+                        <th>Flight Number</th>
+                        <th>Departure Airport</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Airport</th>
+                        <th>Arrival Time</th>
+                        <th>Economy Price</th>
+                        <th>Business Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="flightbody">
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="departedFlight" role="tabpanel" aria-labelledby="departedFlight-tab">
+            
+            <!-- Table for Flights -->
+            <table class="table table-striped table-bordered table-sm" id="departedFlight">
+                <thead>
+                    <tr>
+                        <th>Flight Name</th>
+                        <th>Flight Number</th>
+                        <th>Departure Airport</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Airport</th>
+                        <th>Arrival Time</th>
+                        <th>Economy Price</th>
+                        <th>Business Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="departedFlightbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

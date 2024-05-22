@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+<h1 style="text-align:left"><span class="glyphicon glyphicon-home"></span> Manage Content </h1>
+<br />
+
+
+<div id="admin_container">
+</div>
+
+<script type="text/javascript">
+    var activeTabId = '#' + '@ViewBag.activeTab';
+    console.log(activeTabId);
+
+    $(activeTabId).addClass("active1");
+
+    require(['jquery', 'src/admin/init_admin'],
+        function ($, admin) {
+            $(document).ready(function () {
+                admin();
+            });
+        });
+</script>
+
+

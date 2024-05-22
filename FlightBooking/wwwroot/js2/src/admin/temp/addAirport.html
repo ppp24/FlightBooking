@@ -1,0 +1,32 @@
+﻿
+
+
+
+<div class="modal" id="addmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Form</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form" id="addformAirport">
+                    <div class="form-group">
+                        <label for="name">Name: <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location: <span style="color:red">*</span></label>
+                        <input type="text" class="form-control" id="location" name="location" placeholder="Location">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnAddAirport" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .flight-card {
+            display: flex;
+            justify-content: center; /* Distribute space between columns */
+            padding: 30px;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: calc(100% - 90px); /* Calculate width with space around it */
+            box-sizing: border-box;
+            color: black;
+            font-weight: 500;
+        }
+
+        .flight-details-column {
+            flex: 1; /* Take up 50% of the available space */
+        }
+
+        .price-column {
+            width: 150px; /* Adjust width of the price column */
+            text-align: center;
+            background-color: #4fa3e3;
+            padding: 10px;
+            border-radius: 5px 5px 50px 50px;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-weight: 500;
+        }
+
+        .business-column {
+            width: 150px; /* Adjust width of the price column */
+            text-align: center;
+            background-color: #083252;
+            padding: 10px;
+            border-radius: 5px 5px 50px 50px;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-weight: 500;
+        }
+
+
+        .time-container, .airport {
+            display: flex;
+            align-items: center;
+        }
+
+        .connector-container {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            color: black;
+        }
+
+        .connector {
+            width: 200px; /* Adjust connector width */
+            border: 2px dashed #cccccc;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px 0 20px;
+            align-content: center;
+        }
+
+        .content {
+            max-width: 2110px; /* Adjust the maximum width of your content */
+            width: 100%;
+            /* Other styling for your content */
+        }
+        .airports {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="airports text-center font-weight-bold">
+        <%= departureAirport %> <span>to</span> <%= arrivalAirport %>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="flight-cards-container col-12 " style="padding-left:30px">
+                <div class="flight-card">
+                    <div class="row" style="padding-left: 20px">
+                        <div class="flight-details-column">
+                            <div class="row">
+                                <div class="time-container">
+                                    <div class="time"><%=departureTime%></div>
+                                </div>
+                                <div class="connector-container">
+                                    <hr class="connector">
+                                </div>
+                                <div class="time-container">
+                                    <div class="time"><%=arrivalTime%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="airport" style="padding-right:240px"><%=departureAirport%></div>
+                                <div class="airport"><%=arrivalAirport%></div>
+                            </div>
+                        </div>
+                        <div class="price-column">
+                            <div class="price-label">From FJD</div>
+                            <div class="price-label">Economy</div>
+                            <div class="price">$ <%=economyPrice%></div>
+                            <button type="button" class="btn btn-link" id="ecobtn"><i class="bi bi-arrow-down"></i></button>
+
+                        </div>
+                        <!--<div class="business-column">
+                            <div class="price-label">From FJD</div>
+                            <div class="price-label">Business</div>
+                            <div class="price">$ <%=businessPrice%></div>
+                            <button type="button" class="btn btn-link" id="busbtn"><i class="bi bi-arrow-down"></i></button>
+
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<script type="text/template" id="itinerary-template">
+    <div class="container">
+        <div class="bookingcontent">
+            <h3 class="font-weight-bold">Booking Confirmation: <%= PassengerId %></h3>
+            <div class="booking-container col-12">
+                <!-- Outgoing Flight Details -->
+                <div class="booking-card">
+                    <h4>Outgoing Flight</h4>
+                    <div class="booking-details-column">
+                        <div class="time-container">
+                            <div class="time"><%= OutboundDepartTime %></div>
+                            <div class="airport"><%= OutboundDepartAirport %></div>
+                        </div>
+                        <div class="connector-container">
+                            <hr class="connector">
+                        </div>
+                        <div class="time-container">
+                            <div class="time"><%= OutboundArriveTime %></div>
+                            <div class="airport"><%= OutboundArriveAirport %></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Return Flight Details -->
+                <% if (ReturnDepartTime) { %>
+                <div class="booking-card">
+                    <h4>Return Flight</h4>
+                    <div class="booking-details-column">
+                        <div class="time-container">
+                            <div class="time"><%= ReturnDepartTime %></div>
+                            <div class="airport"><%= ReturnDepartAirport %></div>
+                        </div>
+                        <div class="connector-container">
+                            <hr class="connector">
+                        </div>
+                        <div class="time-container">
+                            <div class="time"><%= ReturnArriveTime %></div>
+                            <div class="airport"><%= ReturnArriveAirport %></div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <!-- Passenger Details -->
+                <div class="booking-card">
+                    <h4>Passenger Details</h4>
+                    <div>
+                        <p><strong>Name:</strong> <%= FirstName %> <%= LastName %></p>
+                        <p><strong>Email:</strong> <%= Email %></p>
+                        <p><strong>Phone:</strong> <%= PhoneContact %></p>
+                    </div>
+                </div>
+                <!-- Payment Details -->
+                <div class="booking-card">
+                    <h4>Payment Details</h4>
+                    <div>
+                        <p><strong>Total Amount:</strong> <%= TotalAmount %></p>
+                        <p><strong>Payment Status:</strong> <%= PaymentStatus %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

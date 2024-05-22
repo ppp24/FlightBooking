@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_LayoutFlightBooking";
+}
+
+<div class="banner" style="background-image: url('images/flightbg.jpg')">
+    <div class="banner-text">
+        <h1>Select Your Departure</h1>
+    </div>
+</div>
+
+<div class="flight-cards-container">
+    <div id="flightDetails">
+    </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+    var activeTabId = '#' + '@ViewBag.activeTab';
+    console.log(activeTabId);
+
+    $(activeTabId).addClass("active1");
+
+    require(['jquery', 'src/booking/init_booking'],
+        function ($, booking) {
+            $(document).ready(function () {
+                booking();
+            });
+        });
+</script>

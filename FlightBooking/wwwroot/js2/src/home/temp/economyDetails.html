@@ -1,0 +1,114 @@
+﻿<style>
+    .card-body {
+        color: black;
+    }
+
+    .card {
+        height: 400px;
+        border: 3px solid transparent;
+        transition: border-color 0.3s ease;
+    }
+
+    .card-body:hover {
+        border: 3px solid blue;
+    }
+
+    .form-check-label {
+        font-size: 16px !important;
+        align-content: center !important;
+    }
+
+    .submit-btn {
+        color: #fff;
+        background-color: #4fa3e3;
+        font-weight: 400;
+        height: 55px;
+        font-size: 18px;
+        border: none;
+        width: 100%;
+        border-radius: 4px;
+        text-transform: uppercase;
+        padding: 0 30px;
+        margin-left: 55%;
+        margin-top: 350%;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+
+<div class="container" id="ecoDetail">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <label class="form-check-label" for="flightOption1"></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flightOption" id="flightOption1" value="option1" checked>
+                        <label class="form-check-label" for="flightOption1">Lite</label>
+                    </div>
+                    <div>
+                        <p><i class="fas fa-utensils"></i> Meals</p>
+                        <p><i class="fas fa-wine-bottle"></i> Drinks</p>
+                        <p><i class="fas fa-film"></i> Entertainment</p>
+                        <p><i class="fas fa-suitcase"></i> 1 Carry-on Bag</p>
+                        <div>
+                            <p id="litePricePlaceholder">Economy Price: $<span id="litePrice"><%= economyPrice %></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <label class="form-check-label" for="flightOption2"></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flightOption" id="flightOption2" value="option2">
+                        <label class="form-check-label" for="flightOption2">Value</label>
+                    </div>
+                    <div>
+                        <p><i class="fas fa-utensils"></i> Meals</p>
+                        <p><i class="fas fa-wine-bottle"></i>Drinks</p>
+                        <p><i class="fas fa-film"></i> Entertainment</p>
+                        <p><i class="fas fa-suitcase"></i> 1 Carry-on Bag</p>
+                        <p><i class="fas fa-suitcase"></i> 1 Checked-out Bag x 30kg</p>
+                        <div>
+                            <p id="valuePricePlaceholder">Value Price: $<span id="valuePrice"><%= valuePrice %></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 justify-content-end">
+        <div class="col-md-12 d-flex justify-content-end">
+            <button class="submit-btn" id="nextecoBtn">Next</button>
+        </div>
+    </div>
+</div>
+
+
+<!--<script>
+    // Get all radio buttons
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+    // Add change event listener to each radio button
+    radioButtons.forEach(button => {
+        button.addEventListener('change', function () {
+            // Get the parent card element
+            const card = this.closest('.card');
+
+            // Check if the radio button is checked
+            if (this.checked) {
+                // Update the border color of the parent card to blue
+                card.style.borderColor = 'blue';
+            } else {
+                // If not checked, reset the border color
+                card.style.borderColor = 'transparent';
+            }
+        });
+    });
+</script>-->
