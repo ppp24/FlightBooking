@@ -95,6 +95,18 @@ namespace FlightBooking.Controllers
             return Json(result);
         }
 
+        [HttpGet]
+        [Route("/Home/GetBookingByReference")]
+        public async Task<IActionResult> GetBookingByReference(string confirmationNumber)
+        {
+            var result = await BLL.Home.GetBookingByReference(confirmationNumber);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Json(result);
+        }
+
 
 
     }

@@ -115,7 +115,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("AirportId");
 
-                    b.ToTable("tbl_airport");
+                    b.ToTable("tbl_airport", (string)null);
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblBooking", b =>
@@ -188,7 +188,7 @@ namespace FlightBooking.Migrations
 
                     b.HasIndex("ReturnFlightId");
 
-                    b.ToTable("tbl_booking");
+                    b.ToTable("tbl_booking", (string)null);
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblDestinations", b =>
@@ -229,7 +229,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_destinations");
+                    b.ToTable("tbl_destinations", (string)null);
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblFlight", b =>
@@ -277,7 +277,7 @@ namespace FlightBooking.Migrations
 
                     b.HasIndex("DepartureAirportId");
 
-                    b.ToTable("tbl_flight");
+                    b.ToTable("tbl_flight", (string)null);
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblPassengerDetails", b =>
@@ -353,7 +353,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("PassengerId");
 
-                    b.ToTable("tbl_passengerdetails");
+                    b.ToTable("tbl_passengerdetails", (string)null);
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblPayments", b =>
@@ -398,7 +398,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("PaymentId");
 
-                    b.ToTable("TblPayments");
+                    b.ToTable("TblPayments", (string)null);
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblPermissions", b =>
@@ -420,7 +420,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_permissions");
+                    b.ToTable("tbl_permissions", (string)null);
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblRolePermissions", b =>
@@ -446,7 +446,7 @@ namespace FlightBooking.Migrations
 
                     b.HasIndex("permissionId");
 
-                    b.ToTable("tbl_role_permissions");
+                    b.ToTable("tbl_role_permissions", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

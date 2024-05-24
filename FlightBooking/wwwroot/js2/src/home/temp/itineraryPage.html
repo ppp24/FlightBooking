@@ -1,62 +1,239 @@
-﻿<script type="text/template" id="itinerary-template">
+﻿
+<!--<div class="container">
+    <div class="bookingcontent">
+        <h3 class="font-weight-bold">Booking Confirmation</h3>
+        <div class="booking-container col-12">-->
+<!-- Outgoing Flight Details -->
+<!--<div class="booking-card">
+    <h4>Outgoing Flight</h4>
+    <div class="booking-details-column">
+        <div class="time-container">
+            <div class="time"><%= outboundDepartTime %></div>
+            <div class="airport"><%= outboundDepartAirport %></div>
+        </div>
+        <div class="connector-container">
+            <hr class="connector">
+        </div>
+        <div class="time-container">
+            <div class="time"><%= outboundArriveTime %></div>
+            <div class="airport"><%= outboundArriveAirport %></div>
+        </div>
+    </div>
+</div>-->
+<!-- Return Flight Details -->
+<!--<% if (returnDepartTime) { %>
+<div class="booking-card">
+    <h4>Return Flight</h4>
+    <div class="booking-details-column">
+        <div class="time-container">
+            <div class="time"><%= returnDepartTime %></div>
+            <div class="airport"><%= returnDepartAirport %></div>
+        </div>
+        <div class="connector-container">
+            <hr class="connector">
+        </div>
+        <div class="time-container">
+            <div class="time"><%= returnArriveTime %></div>
+            <div class="airport"><%= returnArriveAirport %></div>
+        </div>
+    </div>
+</div>
+<% } %>-->
+<!-- Passenger Details -->
+<!--<div class="booking-card">
+    <h4>Passenger Details</h4>
+    <div>
+        <p><strong>Name:</strong> <%= firstName %> <%= lastName %></p>
+        <p><strong>Email:</strong> <%= email %></p>
+        <p><strong>Phone:</strong> <%= phoneContact %></p>
+    </div>
+</div>-->
+<!-- Payment Details -->
+<!--<div class="booking-card">
+                <h4>Payment Details</h4>
+                <div>
+                    <p><strong>Total Amount:</strong> <%= totalAmount %></p>
+                    <p><strong>Payment Status:</strong> <%= paymentStatus %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .bookingcontent {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20%;
+        }
+
+        h3, h4 {
+            color: #004080;
+        }
+
+        h3 {
+            border-bottom: 2px solid #004080;
+            padding-bottom: 10px;
+        }
+
+        .booking-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .booking-details-column {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .time-container {
+            text-align: center;
+        }
+
+        .time {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .airport {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .connector-container {
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+
+        .connector {
+            border: 1px solid #ddd;
+        }
+        .pdf-button {
+            color: #fff;
+            background-color: #4fa3e3;
+            font-weight: 400;
+            height: 55px;
+            font-size: 14px;
+            border: none;
+            width: auto;
+            border-radius: 4px;
+            text-transform: uppercase;
+            padding: 0 20px;
+            margin-left: 80%;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+            p strong {
+                font-weight: 500;
+            }
+    </style>
+</head>
+<body>
     <div class="container">
         <div class="bookingcontent">
-            <h3 class="font-weight-bold">Booking Confirmation: <%= PassengerId %></h3>
+            <h3 class="font-weight-bold">Booking Confirmation</h3>
+            <div class="time"><%= confirmationNumber %></div>
             <div class="booking-container col-12">
-                <!-- Outgoing Flight Details -->
+                Outgoing Flight Details
                 <div class="booking-card">
                     <h4>Outgoing Flight</h4>
                     <div class="booking-details-column">
                         <div class="time-container">
-                            <div class="time"><%= OutboundDepartTime %></div>
-                            <div class="airport"><%= OutboundDepartAirport %></div>
+                            <div class="time"><%= outboundDepartTime %></div>
+                            <div class="airport"><%= outboundDepartAirport %></div>
                         </div>
                         <div class="connector-container">
                             <hr class="connector">
                         </div>
                         <div class="time-container">
-                            <div class="time"><%= OutboundArriveTime %></div>
-                            <div class="airport"><%= OutboundArriveAirport %></div>
+                            <div class="time"><%= outboundArriveTime %></div>
+                            <div class="airport"><%= outboundArriveAirport %></div>
                         </div>
                     </div>
                 </div>
-                <!-- Return Flight Details -->
-                <% if (ReturnDepartTime) { %>
+                Return Flight Details
+                <% if (returnDepartTime) { %>
                 <div class="booking-card">
                     <h4>Return Flight</h4>
                     <div class="booking-details-column">
                         <div class="time-container">
-                            <div class="time"><%= ReturnDepartTime %></div>
-                            <div class="airport"><%= ReturnDepartAirport %></div>
+                            <div class="time"><%= returnDepartTime %></div>
+                            <div class="airport"><%= returnDepartAirport %></div>
                         </div>
                         <div class="connector-container">
                             <hr class="connector">
                         </div>
                         <div class="time-container">
-                            <div class="time"><%= ReturnArriveTime %></div>
-                            <div class="airport"><%= ReturnArriveAirport %></div>
+                            <div class="time"><%= returnArriveTime %></div>
+                            <div class="airport"><%= returnArriveAirport %></div>
                         </div>
                     </div>
                 </div>
                 <% } %>
-                <!-- Passenger Details -->
+                Passenger Details
                 <div class="booking-card">
                     <h4>Passenger Details</h4>
                     <div>
-                        <p><strong>Name:</strong> <%= FirstName %> <%= LastName %></p>
-                        <p><strong>Email:</strong> <%= Email %></p>
-                        <p><strong>Phone:</strong> <%= PhoneContact %></p>
+                        <p><strong>Name:</strong> <%= firstName %> <%= lastName %></p>
+                        <p><strong>Email:</strong> <%= email %></p>
+                        <p><strong>Phone:</strong> <%= phoneContact %></p>
                     </div>
                 </div>
-                <!-- Payment Details -->
+                Payment Details
                 <div class="booking-card">
                     <h4>Payment Details</h4>
                     <div>
-                        <p><strong>Total Amount:</strong> <%= TotalAmount %></p>
-                        <p><strong>Payment Status:</strong> <%= PaymentStatus %></p>
+                        <p><strong>Total Amount:</strong> <%= totalAmount %></p>
+                        <p><strong>Payment Status:</strong> <%= paymentStatus %></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</script>
+    <button class="pdf-button" onclick="generatePDF()">Download PDF</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        function generatePDF() {
+            const element = document.querySelector('.bookingcontent');
+            html2pdf(element, {
+                margin: 1,
+                filename: 'BookingConfirmation.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            });
+        }
+    </script>
+</body>
+</html>
+

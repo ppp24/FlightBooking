@@ -2,7 +2,7 @@
 {
     public class ItineraryVM
     {
-        public int PassengerId { get; set; }
+       // public int PassengerId { get; set; }
         public int OutboundFlightId { get; set; }
         public DateTime OutboundDepartTime { get; set; }
         public DateTime OutboundArriveTime { get; set; }
@@ -20,5 +20,6 @@
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneContact { get; set; }
+        public string? ConfirmationNumber { get; set; }
     }
 }

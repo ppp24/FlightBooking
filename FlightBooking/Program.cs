@@ -92,7 +92,7 @@ var app = builder.Build();
 //        await roleManager.CreateAsync(new ApplicationRoles(Enums.RoleName.staff.ToString()));
 //    }
 
-//    var user = new ApplicationUser { UserName = "admin@example.com", Email = "admin@example.com" , FirstName = "admin", LastName = "test"};
+//    var user = new ApplicationUser { UserName = "admin@example.com", Email = "admin@example.com", FirstName = "admin", LastName = "test" };
 
 //    var result = await userManager.CreateAsync(user, "Admin@123");
 

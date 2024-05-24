@@ -11,6 +11,7 @@
     'text!src/home/temp/payment.html',
     'text!src/home/temp/passengerDetails.html',
     'text!src/home/temp/itineraryPage.html',
+    'text!src/home/temp/searchBookings.html',
 
     //plug-ins
     //https://unpkg.com/sweetalert/dist/sweetalert.min.js',
@@ -48,6 +49,7 @@
                 passengerDetails: require('text!src/home/temp/passengerDetails.html'),
                 /*bookingPage: require('text!src/home/temp/bookingPage.html'),*/
                 itinerary: require('text!src/home/temp/itineraryPage.html'),
+                searchBookings: require('text!src/home/temp/searchBookings.html'),
             },
             events: {
                 /*  'change #fromAirport': 'fetchlocation',*/
@@ -64,6 +66,8 @@
                 'click #makePayment': 'makePayment',
                 'click #viewbooking': 'ViewBooking',
                 'click #savebook': 'saveBookings',
+                'click #manageBook': 'getsearchform',
+                'click #searchbookin': 'searchbooking',
 
             },
 
@@ -78,6 +82,41 @@
 
             backBtn: function () {
                 window.history.back()
+            },
+
+            getsearchform: function () {
+                var view = this;
+                view.$el.html("");
+                view.$el.append(_.template(view.templates.searchBookings)); 
+
+            },
+            searchbooking: function () {
+                var view = this;
+                $('#booking-form').on('submit', function (event) {
+                    event.preventDefault();
+                    const confirmationNumber = $('#confirmationNumber').val();
+                    /* const lastName = $('#lastName').val();*/
+
+                    $.ajax({
+                        url: '/Home/GetBookingByReference',
+                        type: 'GET',
+                        data: {
+                            confirmationNumber: confirmationNumber,
+                            // lastName: lastName
+                        },
+                        success: function (data) {
+                            if (data) {
+                                //window.location.href = '/Home/BookingDetails/' + data.bookingId;
+                                view.booking();
+                            } else {
+                                $('#error-message').text('No booking found with the provided details.');
+                            }
+                        },
+                        error: function () {
+                            $('#error-message').text('An error occurred while searching for the booking.');
+                        }
+                    });
+                });
             },
 
 
@@ -545,12 +584,127 @@
                 $("#country").val("");
                 $("#email").val("");
                 $("#phone").val("");
+
+                view.validatePassengerForm('#passengerForm');
             },
 
             handleFormSubmit: function (event) {
                 event.preventDefault();
                 this.savePassengerDetails();
             },
+
+            validatePassengerForm: function (formName) {
+                // Custom method to validate expiry date
+                $.validator.addMethod("validExpiryDate", function (value, element) {
+                    const today = new Date();
+                    const enteredDate = new Date(value);
+                    const minDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+                    return this.optional(element) || enteredDate >= minDate;
+                }, "Expiry date should be at least a month later than the current date.");
+
+                // Custom method to validate date of birth
+                $.validator.addMethod("validDOB", function (value, element) {
+                    const today = new Date();
+                    const enteredDate = new Date(value);
+                    const minDate = new Date(1950, 0, 1); // January 1, 1950
+                    const maxDate = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+                    return this.optional(element) || (enteredDate >= minDate && enteredDate <= maxDate);
+                }, "Date of birth should be at least a month before the current date and not before 1950.");
+
+                $(formName).validate({
+                    rules: {
+                        firstName: {
+                            required: true,
+                            minlength: 3
+                        },
+                        lastName: {
+                            required: true,
+                            minlength: 2
+                        },
+                        loyaltyCode: {
+                            required: true,
+                            minlength: 4,
+                            maxlength: 4,
+                            digits: true
+                        },
+                        expiryMonth: {
+                            required: true,
+                            digits: true,
+                            min: 1,
+                            max: 12
+                        },
+                        dob: {
+                            required: true,
+                            date: true,
+                            validDOB: true
+                        },
+                        expiryDate: {
+                            required: true,
+                            date: true,
+                            validExpiryDate: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        phone: {
+                            required: true,
+                            digits: true,
+                            minlength: 7,
+                            maxlength: 7
+                        }
+                    },
+                    messages: {
+                        firstName: {
+                            required: "Please enter your first name",
+                            minlength: "First name must be at least 3 characters long"
+                        },
+                        lastName: {
+                            required: "Please enter your last name",
+                            minlength: "Last name must be at least 2 characters long"
+                        },
+                        loyaltyCode: {
+                            required: "Please enter your loyalty code",
+                            minlength: "Loyalty code must be 4 digits long",
+                            maxlength: "Loyalty code must be 4 digits long",
+                            digits: "Loyalty code must be digits only"
+                        },
+                        expiryMonth: {
+                            required: "Please enter the expiry month",
+                            digits: "Please enter a valid month",
+                            min: "Month must be between 1 and 12",
+                            max: "Month must be between 1 and 12"
+                        },
+                        dob: {
+                            required: "Please enter your date of birth",
+                            date: "Please enter a valid date",
+                            validDOB: "Date of birth should be at least a month before the current date and not before 1950."
+                        },
+                        expiryDate: {
+                            required: "Please enter the expiry date",
+                            date: "Please enter a valid date",
+                            validExpiryDate: "Expiry date should be at least a month later than the current date."
+                        },
+                        email: {
+                            required: "Please enter your email",
+                            email: "Please enter a valid email address"
+                        },
+                        phone: {
+                            required: "Please enter your phone number",
+                            digits: "Please enter a valid phone number",
+                            minlength: "Phone number must be 7 digits long",
+                            maxlength: "Phone number must be 7 digits long"
+                        }
+                    },
+                    errorClass: 'text-danger',
+                    errorPlacement: function (error, element) {
+                        error.insertBefore(element.parent());
+                    }
+                });
+            },
+
+
+
 
             savePassengerDetails: function () {
                 var view = this;
@@ -650,7 +804,7 @@
                     ReturnDepartAirport: selectedReturnOption ? selectedReturnOption.departureAirport : null,
                     ReturnArriveAirport: selectedReturnOption ? selectedReturnOption.arrivalAirport : null,
                     TotalAmount: selectedFlightOption.price + (selectedReturnOption ? selectedReturnOption.price : 0),
-                    PaymentStatus: "Pending", // Initial status, may be updated by backend after payment
+                    PaymentStatus: "Successful", // Initial status, may be updated by backend after payment
                     SpecialRequests: selectedReturnOption ? selectedReturnOption.specialRequests : null
                 };
 
@@ -831,23 +985,46 @@
             },
 
 
-            itineraryPage: function (e) {
+            itineraryPage: function () {
                 var view = this;
-                var id = $(e.currentTarget).data("id");
-                $.ajax({
-                    url: '/Home/GetItinerary/' + id,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        // Assuming view.templates.itinerary is a compiled underscore template
-                        var itineraryHtml = _.template(view.templates.itinerary)(data);
-                        view.$el.html(itineraryHtml);
-                    },
-                    error: function () {
-                        alert('Error loading itinerary details.');
-                    }
-                });
+
+                // Retrieve the selected flight option from localStorage
+                var selectedFlightOption = JSON.parse(localStorage.getItem('selectedFlightOption'));
+
+                // Check if selectedFlightOption exists and has a bookingId
+                if (selectedFlightOption && selectedFlightOption.bookingId) {
+                    var bookingId = selectedFlightOption.bookingId;
+
+                    // Make an AJAX request to get itinerary details using the booking ID
+                    $.ajax({
+                        url: '/Home/GetItinerary/' + bookingId, // Use bookingId in the URL
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            var confirmationNumber = data;
+
+                            // Saving passenger ID in selected options
+                            var selectedFlightOption = JSON.parse(localStorage.getItem('selectedFlightOption'));
+                            var selectedReturnOption = JSON.parse(localStorage.getItem('selectedReturnOption'));
+
+                            // Saving passenger ID in selected flight option
+                            selectedFlightOption.confirmationNumber = confirmationNumber;
+                            localStorage.setItem('selectedFlightOption', JSON.stringify(selectedFlightOption));
+
+
+                            var itineraryHtml = _.template(view.templates.itinerary)(data);
+                            view.$el.html(itineraryHtml);
+                        },
+                        error: function () {
+                            alert('Error loading itinerary details.');
+                        }
+                    });
+                } else {
+                    // Handle the case where the booking ID is not available
+                    alert('Booking ID not found.');
+                }
             }
+
 
 
 

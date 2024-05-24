@@ -1,0 +1,245 @@
+﻿<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 900px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 10%;
+        }
+
+        h1 {
+            color: #004080;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for a booking</h1>
+        <form id="booking-form">
+            <label for="confirmationNumber">Booking reference *</label>
+            <input type="text" id="confirmationNumber" name="confirmationNumber" required placeholder="Your booking reference">-->
+<!--<label for="lastName">Last name *</label>
+<input type="text" id="lastName" name="lastName" required placeholder="Last name">-->
+<!--<button type="submit" id="searchbookin">Continue</button>
+        </form>
+        <p id="error-message" class="error"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#booking-form').on('submit', function(event) {
+                event.preventDefault();
+                const confirmationNumber = $('#confirmationNumber').val();
+               /* const lastName = $('#lastName').val();*/
+
+                $.ajax({
+                    url: '/Home/GetBookingByReference',
+                    type: 'GET',
+                    data: {
+                        confirmationNumber: confirmationNumber,
+                       // lastName: lastName
+                    },
+                    success: function(data) {
+                        if (data) {
+                            // Handle successful response (e.g., redirect to booking details page)
+                            window.location.href = '/Home/BookingDetails/' + data.bookingId;
+                        } else {
+                            $('#error-message').text('No booking found with the provided details.');
+                        }
+                    },
+                    error: function() {
+                        $('#error-message').text('An error occurred while searching for the booking.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #004080;
+            text-align: center;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            font-size: 16px;
+        }
+
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .booking-details {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+            .booking-details h3 {
+                color: #004080;
+            }
+
+            .booking-details p {
+                margin: 5px 0;
+            }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for a booking</h1>
+        <form id="booking-form">
+            <input type="text" id="confirmationNumber" name="confirmationNumber" required placeholder="Enter your booking reference">
+            <button type="submit">Search</button>
+        </form>
+        <p id="error-message" class="error"></p>
+        <div id="booking-details" class="booking-details" style="display: none;">
+            <h3>Booking Details</h3>
+            <p><strong>Confirmation Number:</strong> <span id="booking-confirmation"></span></p>
+            <p><strong>Passenger Name:</strong> <span id="passenger-name"></span></p>
+            <p><strong>Email:</strong> <span id="passenger-email"></span></p>
+            <p><strong>Phone:</strong> <span id="passenger-phone"></span></p>
+            <p><strong>Outbound Flight:</strong> <span id="outbound-flight"></span></p>
+            <p><strong>Outbound Depart Time:</strong> <span id="outbound-depart-time"></span></p>
+            <p><strong>Outbound Arrive Time:</strong> <span id="outbound-arrive-time"></span></p>
+            <p><strong>Return Flight:</strong> <span id="return-flight"></span></p>
+            <p><strong>Return Depart Time:</strong> <span id="return-depart-time"></span></p>
+            <p><strong>Return Arrive Time:</strong> <span id="return-arrive-time"></span></p>
+            <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
+            <p><strong>Payment Status:</strong> <span id="payment-status"></span></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#booking-form').on('submit', function (event) {
+                event.preventDefault();
+                const confirmationNumber = $('#confirmationNumber').val();
+
+                $.ajax({
+                    url: '/Home/GetBookingByReference',
+                    type: 'GET',
+                    data: { confirmationNumber: confirmationNumber },
+                    success: function (data) {
+                        if (data) {
+                            $('#booking-confirmation').text(data.confirmationNumber);
+                            $('#passenger-name').text(`${data.firstName} ${data.lastName}`);
+                            $('#passenger-email').text(data.email);
+                            $('#passenger-phone').text(data.phoneContact);
+                            $('#outbound-flight').text(`${data.outboundDepartAirport} to ${data.outboundArriveAirport}`);
+                            $('#outbound-depart-time').text(data.outboundDepartTime);
+                            $('#outbound-arrive-time').text(data.outboundArriveTime);
+                            $('#return-flight').text(`${data.returnDepartAirport} to ${data.returnArriveAirport}`);
+                            $('#return-depart-time').text(data.returnDepartTime);
+                            $('#return-arrive-time').text(data.returnArriveTime);
+                            $('#total-amount').text(data.totalAmount);
+                            $('#payment-status').text(data.paymentStatus);
+
+                            $('#booking-details').show();
+                            $('#error-message').text('');
+                        } else {
+                            $('#booking-details').hide();
+                            $('#error-message').text('No booking found with the provided reference.');
+                        }
+                    },
+                    error: function () {
+                        $('#booking-details').hide();
+                        $('#error-message').text('An error occurred while searching for the booking.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
