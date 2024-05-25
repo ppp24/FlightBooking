@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\view\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\view\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\temp\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\temp\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\temp\\payment.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\temp\\payment.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\temp\\economydetails.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\temp\\economydetails.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\models\\managebookingvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:models\\managebookingvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\bll\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,24 +23,16 @@
       "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\models\\managebookingvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:models\\managebookingvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\temp\\searchbookings.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\temp\\searchbookings.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\temp\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\temp\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\temp\\requestform.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\temp\\requestform.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\temp\\itinerarypage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\temp\\itinerarypage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\models\\itineraryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:models\\itineraryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\wwwroot\\js2\\src\\home\\view\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|solutionrelative:wwwroot\\js2\\src\\home\\view\\home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3558325B-D36B-4658-9031-B686BC0EC80C}|FlightBooking.csproj|c:\\users\\richelle\\documents\\github\\flightbooking\\flightbooking\\areas\\identity\\pages\\account\\loginwith2fa.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,32 +62,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 239,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "payment.html",
-              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\payment.html",
-              "RelativeDocumentMoniker": "wwwroot\\js2\\src\\home\\temp\\payment.html",
-              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\payment.html",
-              "RelativeToolTip": "wwwroot\\js2\\src\\home\\temp\\payment.html",
-              "ViewState": "AQIAAEQBAAAAAAAAAAAvwIYBAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-05-23T23:47:43.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Index.html",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\Index.html",
               "RelativeDocumentMoniker": "wwwroot\\js2\\src\\home\\temp\\Index.html",
               "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\Index.html",
               "RelativeToolTip": "wwwroot\\js2\\src\\home\\temp\\Index.html",
-              "ViewState": "AQIAAPEAAAAAAAAAAAAAAAkBAAAaAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAArwBQAAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-05-23T22:36:33.248Z"
+              "WhenOpened": "2024-05-25T11:16:11.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "economyDetails.html",
+              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\economyDetails.html",
+              "RelativeDocumentMoniker": "wwwroot\\js2\\src\\home\\temp\\economyDetails.html",
+              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\economyDetails.html",
+              "RelativeToolTip": "wwwroot\\js2\\src\\home\\temp\\economyDetails.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-25T11:16:10.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ManageBookingVM.cs",
+              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Models\\ManageBookingVM.cs",
+              "RelativeDocumentMoniker": "Models\\ManageBookingVM.cs",
+              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Models\\ManageBookingVM.cs",
+              "RelativeToolTip": "Models\\ManageBookingVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T01:38:59.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Home.cs",
+              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\BLL\\Home.cs",
+              "RelativeDocumentMoniker": "BLL\\Home.cs",
+              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\BLL\\Home.cs",
+              "RelativeToolTip": "BLL\\Home.cs",
+              "ViewState": "AQIAAN8AAAAAAAAAAAAswOEAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T01:34:55.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "requestform.html",
+              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\requestform.html",
+              "RelativeDocumentMoniker": "wwwroot\\js2\\src\\home\\temp\\requestform.html",
+              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\requestform.html",
+              "RelativeToolTip": "wwwroot\\js2\\src\\home\\temp\\requestform.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-24T00:23:26.926Z"
             },
             {
               "$type": "Document",
@@ -101,89 +135,37 @@
               "RelativeDocumentMoniker": "wwwroot\\js2\\src\\home\\temp\\searchBookings.html",
               "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\searchBookings.html",
               "RelativeToolTip": "wwwroot\\js2\\src\\home\\temp\\searchBookings.html",
-              "ViewState": "AQIAAKgAAAAAAAAAAAAAALUAAACEAAAA",
+              "ViewState": "AQIAAI0BAAAAAAAAAAAQwJwBAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-05-23T22:30:31.293Z"
+              "WhenOpened": "2024-05-24T00:11:11.218Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ManageBookingVM.cs",
-              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Models\\ManageBookingVM.cs",
-              "RelativeDocumentMoniker": "Models\\ManageBookingVM.cs",
-              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Models\\ManageBookingVM.cs",
-              "RelativeToolTip": "Models\\ManageBookingVM.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAowCEAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T22:09:12.901Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Home.cs",
-              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\BLL\\Home.cs",
-              "RelativeDocumentMoniker": "BLL\\Home.cs",
-              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\BLL\\Home.cs",
-              "RelativeToolTip": "BLL\\Home.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAvwFgAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T23:20:53.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAuwG4AAAAAAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAuwGQAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T23:53:12.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T23:53:12.203Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "home.js",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\view\\home.js",
               "RelativeDocumentMoniker": "wwwroot\\js2\\src\\home\\view\\home.js",
               "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\view\\home.js",
               "RelativeToolTip": "wwwroot\\js2\\src\\home\\view\\home.js",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAmwFMAAAAlAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAAwDwAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-23T00:10:07.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "itineraryPage.html",
-              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\itineraryPage.html",
-              "RelativeDocumentMoniker": "wwwroot\\js2\\src\\home\\temp\\itineraryPage.html",
-              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\itineraryPage.html",
-              "RelativeToolTip": "wwwroot\\js2\\src\\home\\temp\\itineraryPage.html",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAAAJEAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-05-23T00:34:30.318Z"
+              "WhenOpened": "2024-05-23T00:10:07.867Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ItineraryVM.cs",
-              "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Models\\ItineraryVM.cs",
-              "RelativeDocumentMoniker": "Models\\ItineraryVM.cs",
-              "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Models\\ItineraryVM.cs",
-              "RelativeToolTip": "Models\\ItineraryVM.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAgwBYAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T00:46:51.231Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "LoginWith2fa.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml.cs",
@@ -191,12 +173,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml.cs",
               "ViewState": "AQIAAI4AAAAAAAAAAAAuwKAAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T23:53:12.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T23:53:12.152Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
@@ -204,12 +185,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "ViewState": "AQIAAF4AAAAAAAAAAAAuwHIAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T23:53:12.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T23:53:12.141Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Register.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
@@ -217,12 +197,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "ViewState": "AQIAAKcAAAAAAAAAAAAowLEAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:59:41.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T11:59:41.506Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -234,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",

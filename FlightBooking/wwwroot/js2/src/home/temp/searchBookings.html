@@ -4,121 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Booking</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
             color: #333;
         }
 
-        .container {
-            margin: 20px auto;
-            max-width: 900px;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 10%;
-        }
-
-        h1 {
-            color: #004080;
-        }
-
-        input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        button {
-            width: calc(100% - 20px);
-            padding: 10px;
-            background-color: #004080;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        p {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .error {
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Search for a booking</h1>
-        <form id="booking-form">
-            <label for="confirmationNumber">Booking reference *</label>
-            <input type="text" id="confirmationNumber" name="confirmationNumber" required placeholder="Your booking reference">-->
-<!--<label for="lastName">Last name *</label>
-<input type="text" id="lastName" name="lastName" required placeholder="Last name">-->
-<!--<button type="submit" id="searchbookin">Continue</button>
-        </form>
-        <p id="error-message" class="error"></p>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#booking-form').on('submit', function(event) {
-                event.preventDefault();
-                const confirmationNumber = $('#confirmationNumber').val();
-               /* const lastName = $('#lastName').val();*/
-
-                $.ajax({
-                    url: '/Home/GetBookingByReference',
-                    type: 'GET',
-                    data: {
-                        confirmationNumber: confirmationNumber,
-                       // lastName: lastName
-                    },
-                    success: function(data) {
-                        if (data) {
-                            // Handle successful response (e.g., redirect to booking details page)
-                            window.location.href = '/Home/BookingDetails/' + data.bookingId;
-                        } else {
-                            $('#error-message').text('No booking found with the provided details.');
-                        }
-                    },
-                    error: function() {
-                        $('#error-message').text('An error occurred while searching for the booking.');
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>-->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Booking</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        .container {
+        .bookingcontainer {
             max-width: 600px;
             margin: 100px auto;
             padding: 20px;
@@ -173,10 +68,48 @@
             color: red;
             text-align: center;
         }
+        /* CSS for modal popup */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+        }
+
+        /* Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="bookingcontainer">
         <h1>Search for a booking</h1>
         <form id="booking-form">
             <input type="text" id="confirmationNumber" name="confirmationNumber" required placeholder="Enter your booking reference">
@@ -197,6 +130,317 @@
             <p><strong>Return Arrive Time:</strong> <span id="return-arrive-time"></span></p>
             <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
             <p><strong>Payment Status:</strong> <span id="payment-status"></span></p>
+        </div>
+        <button type="button" id="requestupgrade" style="display: none;">Request Upgrade</button>
+    </div>-->
+<!-- Modal Popup -->
+<!--<div id="upgradeModal" class="modal">-->
+<!-- Modal content -->
+<!--<div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Upgrade Options</h2>
+            <form id="upgradeForm">
+                <div class="checkbox">
+                    <input type="checkbox" id="editPlanCheckbox" name="editPlanCheckbox">
+                    <label for="editPlanCheckbox">Edit existing plan</label><br>
+                </div>
+
+                <div id="flightClassOptions" style="display: none;">
+                    <div class="checkbox">
+                        <input type="radio" id="liteClass" name="flightClass" value="lite">
+                        <label for="liteClass">Lite</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="radio" id="valueClass" name="flightClass" value="value">
+                        <label for="valueClass">Value</label><br>
+                    </div>
+                </div>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="loyaltyProgramCheckbox" name="loyaltyProgramCheckbox">
+                    <label for="loyaltyProgramCheckbox">Apply for loyalty program</label><br>
+                </div>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="uploadDocumentsCheckbox" name="uploadDocumentsCheckbox">
+                    <label for="uploadDocumentsCheckbox">Upload documents</label><br>
+                </div>
+
+                <div id="documentUpload" style="display: none;">
+                    <input type="file" id="fileUpload" name="fileUpload">
+                </div>
+
+                <button type="submit" id="submitUpgradeRequest">Submit Upgrade Request</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#booking-form').on('submit', function (event) {
+                event.preventDefault();
+                const confirmationNumber = $('#confirmationNumber').val();
+
+                $.ajax({
+                    url: '/Home/GetBookingByReference',
+                    type: 'GET',
+                    data: { confirmationNumber: confirmationNumber },
+                    success: function (data) {
+                        if (data) {
+                            $('#booking-confirmation').text(data.confirmationNumber);
+                            $('#passenger-name').text(`${data.firstName} ${data.lastName}`);
+                            $('#passenger-email').text(data.email);
+                            $('#passenger-phone').text(data.phoneContact);
+                            $('#outbound-flight').text(`${data.outboundDepartAirport} to ${data.outboundArriveAirport}`);
+                            $('#outbound-depart-time').text(data.outboundDepartTime);
+                            $('#outbound-arrive-time').text(data.outboundArriveTime);
+                            $('#return-flight').text(`${data.returnDepartAirport} to ${data.returnArriveAirport}`);
+                            $('#return-depart-time').text(data.returnDepartTime);
+                            $('#return-arrive-time').text(data.returnArriveTime);
+                            $('#total-amount').text(data.totalAmount);
+                            $('#payment-status').text(data.paymentStatus);
+
+                            $('#booking-details').show();
+                            $('#requestupgrade').show();  // Show the Request Upgrade button
+                            $('#error-message').text('');
+                        } else {
+                            $('#booking-details').hide();
+                            $('#requestupgrade').hide();  // Hide the Request Upgrade button
+                            $('#error-message').text('No booking found with the provided reference.');
+                        }
+                    },
+                    error: function () {
+                        $('#booking-details').hide();
+                        $('#requestupgrade').hide();  // Hide the Request Upgrade button
+                        $('#error-message').text('An error occurred while searching for the booking.');
+                    }
+                });
+            });
+            // Display modal when Request Upgrade button is clicked
+            $('#requestupgrade').on('click', function () {
+                $('#upgradeModal').css('display', 'block');
+            });
+
+            // Close modal when close button is clicked
+            $('.close').on('click', function () {
+                $('#upgradeModal').css('display', 'none');
+            });
+
+            // Close modal when clicked outside of the modal content
+            $(window).on('click', function (event) {
+                if (event.target == $('#upgradeModal')[0]) {
+                    $('#upgradeModal').css('display', 'none');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Booking</title>
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .bookingcontainer {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #004080;
+            text-align: center;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            font-size: 16px;
+        }
+
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .booking-details {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+            .booking-details h3 {
+                color: #004080;
+            }
+
+            .booking-details p {
+                margin: 5px 0;
+            }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+
+        /* CSS for modal popup */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+        }
+
+        /* Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .checkbox-label {
+            /*display: flex;
+            align-items: center;*/
+        }
+
+            .checkbox-label input[type="checkbox"] {
+                margin-right: 10px;
+            }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+            .radio-label input[type="radio"] {
+                margin-right: 10px;
+            }
+
+        #documentUpload {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bookingcontainer">
+        <h1>Search for a booking</h1>
+        <form id="booking-form">
+            <input type="text" id="confirmationNumber" name="confirmationNumber" required placeholder="Enter your booking reference">
+            <button type="submit">Search</button>
+        </form>
+        <p id="error-message" class="error"></p>
+        <div id="booking-details" class="booking-details" style="display: none;">
+            <h3>Booking Details</h3>
+            <p><strong>Confirmation Number:</strong> <span id="booking-confirmation"></span></p>
+            <p><strong>Passenger Name:</strong> <span id="passenger-name"></span></p>
+            <p><strong>Email:</strong> <span id="passenger-email"></span></p>
+            <p><strong>Phone:</strong> <span id="passenger-phone"></span></p>
+            <p><strong>Outbound Flight:</strong> <span id="outbound-flight"></span></p>
+            <p><strong>Outbound Depart Time:</strong> <span id="outbound-depart-time"></span></p>
+            <p><strong>Outbound Arrive Time:</strong> <span id="outbound-arrive-time"></span></p>
+            <p><strong>Return Flight:</strong> <span id="return-flight"></span></p>
+            <p><strong>Return Depart Time:</strong> <span id="return-depart-time"></span></p>
+            <p><strong>Return Arrive Time:</strong> <span id="return-arrive-time"></span></p>
+            <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
+            <p><strong>Payment Status:</strong> <span id="payment-status"></span></p>
+        </div>
+        <button type="button" id="requestupgrade" style="display: none;">Request Upgrade</button>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="upgradeModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Upgrade Options</h2>
+            <form id="upgradeForm">
+                <div class="checkbox-label">
+                    <label for="editPlanCheckbox">Edit existing plan</label>
+                    <input type="checkbox" id="editPlanCheckbox" name="editPlanCheckbox">
+
+                </div>
+
+                <div id="flightClassOptions" style="display: none;">
+                    <div class="radio-label">
+                        <input type="radio" id="liteClass" name="flightClass" value="lite">
+                        <label for="liteClass">Lite</label>
+                    </div>
+                    <div class="radio-label">
+                        <input type="radio" id="valueClass" name="flightClass" value="value">
+                        <label for="valueClass">Value</label>
+                    </div>
+                </div>
+
+                <div class="checkbox-label">
+                    <input type="checkbox" id="loyaltyProgramCheckbox" name="loyaltyProgramCheckbox">
+                    <label for="loyaltyProgramCheckbox">Apply for loyalty program</label>
+                </div>
+
+                <div class="checkbox-label">
+                    <input type="checkbox" id="uploadDocumentsCheckbox" name="uploadDocumentsCheckbox">
+                    <label for="uploadDocumentsCheckbox">Upload documents</label>
+                </div>
+
+                <div id="documentUpload" style="display: none;">
+                    <input type="file" id="fileUpload" name="fileUpload">
+                </div>
+
+                <button type="submit" id="submitUpgradeRequest">Submit Upgrade Request</button>
+            </form>
         </div>
     </div>
 
@@ -227,17 +471,55 @@
                             $('#payment-status').text(data.paymentStatus);
 
                             $('#booking-details').show();
+                            $('#requestupgrade').show();  // Show the Request Upgrade button
                             $('#error-message').text('');
                         } else {
                             $('#booking-details').hide();
+                            $('#requestupgrade').hide();  // Hide the Request Upgrade button
                             $('#error-message').text('No booking found with the provided reference.');
                         }
                     },
                     error: function () {
                         $('#booking-details').hide();
+                        $('#requestupgrade').hide();  // Hide the Request Upgrade button
                         $('#error-message').text('An error occurred while searching for the booking.');
                     }
                 });
+            });
+
+            // Display modal when Request Upgrade button is clicked
+            $('#requestupgrade').on('click', function () {
+                $('#upgradeModal').css('display', 'block');
+            });
+
+            // Close modal when close button is clicked
+            $('.close').on('click', function () {
+                $('#upgradeModal').css('display', 'none');
+            });
+
+            // Close modal when clicked outside of the modal content
+            $(window).on('click', function (event) {
+                if (event.target == $('#upgradeModal')[0]) {
+                    $('#upgradeModal').css('display', 'none');
+                }
+            });
+
+            // Toggle flight class options when edit plan checkbox is checked
+            $('#editPlanCheckbox').on('change', function () {
+                if ($(this).is(':checked')) {
+                    $('#flightClassOptions').show();
+                } else {
+                    $('#flightClassOptions').hide();
+                }
+            });
+
+            // Toggle file upload option when upload documents checkbox is checked
+            $('#uploadDocumentsCheckbox').on('change', function () {
+                if ($(this).is(':checked')) {
+                    $('#documentUpload').show();
+                } else {
+                    $('#documentUpload').hide();
+                }
             });
         });
     </script>

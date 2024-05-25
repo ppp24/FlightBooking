@@ -68,6 +68,7 @@
                 'click #savebook': 'saveBookings',
                 'click #manageBook': 'getsearchform',
                 'click #searchbookin': 'searchbooking',
+                'click #requestupgrade': 'requestupgradeform',
 
             },
 

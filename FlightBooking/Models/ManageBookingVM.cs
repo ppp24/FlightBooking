@@ -3,6 +3,7 @@
     public class ManageBookingVM
     {
         public int BookingId { get; set; }
+        public int PassengerId { get; set; }
         public int OutboundFlightId { get; set; }
         public DateTime OutboundDepartTime { get; set; }
         public DateTime OutboundArriveTime { get; set; }

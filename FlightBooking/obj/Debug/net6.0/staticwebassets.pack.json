@@ -11653,6 +11653,10 @@
       "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\payment.html"
     },
     {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\requestform.html",
+      "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\requestform.html"
+    },
+    {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\returnFlight.html",
       "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\returnFlight.html"
     },

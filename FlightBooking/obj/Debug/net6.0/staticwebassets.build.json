@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+yiT8d+57pIAS2hCOIkYEjyavwHSMux3Ec1GoZgWMog=",
+  "Hash": "ZUNkLLdiF+qzuDEgr/HDPzv3QEn80u3GJxj7tG19G5E=",
   "Source": "FlightBooking",
   "BasePath": "_content/FlightBooking",
   "Mode": "Default",
@@ -56863,6 +56863,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js2\\src\\home\\temp\\payment.html"
+    },
+    {
+      "Identity": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\requestform.html",
+      "SourceId": "FlightBooking",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\",
+      "BasePath": "_content/FlightBooking",
+      "RelativePath": "js2/src/home/temp/requestform.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js2\\src\\home\\temp\\requestform.html"
     },
     {
       "Identity": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\returnFlight.html",

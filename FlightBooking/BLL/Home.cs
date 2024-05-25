@@ -73,7 +73,7 @@ namespace FlightBooking.BLL
                         ReturnArriveTime = model.ReturnArriveTime,
                         BookingDate = DateTime.Now,
                         TotalAmount = model.TotalAmount,
-                        PaymentStatus = "Pending",
+                        PaymentStatus = "Successful",
                         SpecialRequests = model.SpecialRequests
                     };
 
@@ -216,6 +216,7 @@ namespace FlightBooking.BLL
         }
 
         //get bookings tbl for customers based on email address
+
         public static async Task<ManageBookingVM> GetBookingByReference(string confirmationNumber)
         {
             using (var db = new ApplicationDbContext())
