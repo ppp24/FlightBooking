@@ -54,7 +54,7 @@ namespace FlightBooking.BLL
                 {
                     
                     case 1: // Change To Value
-                        if (booking.OutboundPriceType.Equals("Lite", StringComparison.OrdinalIgnoreCase) ||booking.ReturnPriceType.Equals("Lite", StringComparison.OrdinalIgnoreCase))
+                        if (booking.OutboundPriceType.Equals("Lite", StringComparison.OrdinalIgnoreCase) ||booking.ReturnPriceType.Equals("lite", StringComparison.OrdinalIgnoreCase) || booking.ReturnPriceType.Equals(" ", StringComparison.OrdinalIgnoreCase))
                         {
                             decimal totalPriceDifference = CalculateTotalPriceDifference(booking);
                             responseMessage = $"To change to Value, you need to pay an additional amount of {totalPriceDifference:C}.";
@@ -71,7 +71,7 @@ namespace FlightBooking.BLL
                         }
                         else
                         {
-                            responseMessage = "No change needed for Change To Value.";
+                            responseMessage = "No change needed as existing class type is value. Request has been closed";
                             request.ResponseMessage = responseMessage;
                             request.Status = "Actioned";
                             _context.SaveChanges();
@@ -83,7 +83,7 @@ namespace FlightBooking.BLL
                     case 2: // Change To Lite
                         if (booking.OutboundPriceType.Equals("Value", StringComparison.OrdinalIgnoreCase) || booking.ReturnPriceType.Equals("Value", StringComparison.OrdinalIgnoreCase))
                         {
-                            decimal totalPriceDifference = CalculateTotalPriceDifference(booking);
+                            decimal totalPriceDifference = CalculateRefundPrice(booking);
                             responseMessage = $"To change to Lite, you will be refunded  {totalPriceDifference:C} in 5 business days";
 
                             // Save the request with the price difference fvresponse message
@@ -96,14 +96,14 @@ namespace FlightBooking.BLL
                             _context.Entry(booking).State = EntityState.Modified;
                             _context.SaveChanges();
 
-                           
+
                             // Send email to customer with payment details
-                            SendPaymentEmail(booking, responseMessage);
+                            SendRefundEmail(booking, responseMessage);
                             return true;
                         }
                         else
                         {
-                            responseMessage = "No change needed for Change To Value.";
+                            responseMessage = "No change needed as existing class type is lite.Request has been closed";
                             request.ResponseMessage = responseMessage;
                             request.Status = "Actioned";
                             _context.SaveChanges();
@@ -114,7 +114,7 @@ namespace FlightBooking.BLL
 
                     case 3:
                         // No Change
-                        SendSuccessEmail(booking, "No Change action was selected.");
+                        SendSuccessEmail(booking, "No Change action was selected.Request has been closed");
                         break;
 
                     case 4:
@@ -122,7 +122,7 @@ namespace FlightBooking.BLL
                         var passengerBookings = _context.TblBooking
                             .Count(b => b.PassengerId == booking.PassengerId && b.BookingDate < DateTime.Now);
 
-                        if (passengerBookings > 3)
+                        if (passengerBookings > 0)
                         {
                             var loyaltyCode = GenerateLoyaltyCode();
                             var passenger = _context.TblPassengerDetails
@@ -130,21 +130,31 @@ namespace FlightBooking.BLL
                             if (passenger != null)
                             {
                                 SendLoyaltyCodeEmail(passenger.Email, loyaltyCode, confirmationNumber);
+                                responseMessage = "Loyality code sent via email";
+                                request.ResponseMessage = responseMessage;
+                                request.Status = "Actioned";
+                                _context.SaveChanges();
                                 return true;
                             }
                         }
                         else
                         {
-                            SendFailureEmail(booking, "Passenger does not qualify for loyalty program.");
-                            responseMessage = "Passenger does not qualify for loyalty program.";
-                            return false;
+                            SendFailureEmail(booking, "Passenger does not qualify for loyalty program.Request has been closed");
+                            responseMessage = "Passenger does not qualify for loyalty program.Request has been closed";
+                            request.ResponseMessage = responseMessage;
+                            request.Status = "Actioned";
+                            _context.SaveChanges();
+                            return true;
                         }
                         break;
 
                     case 5:
                         // Handle action 5
-                        SendSuccessEmail(booking, "Action 5 was processed.");
-                        responseMessage = "Action 5 was processed.";
+                        SendSuccessEmail(booking, "Document successfully uploaded");
+                        responseMessage = "Document successfully uploaded";
+                        request.ResponseMessage = responseMessage;
+                        request.Status = "Actioned";
+                        _context.SaveChanges();
                         break;
 
                     default:
@@ -152,16 +162,7 @@ namespace FlightBooking.BLL
                         responseMessage = "Invalid action selected.";
                         break;
                 }
-                // Save response message to TblRequest
-                //var request = new TblRequests
-                //{
-                //    // Assuming RequestId is a foreign key in TblBooking
-                //    //Id = model.RequestId,
-                //    ResponseMessage = responseMessage,
-                //    Status = "Actioned"
-                //};
-                //_context.TblRequests.Add(request);
-                //_context.SaveChanges();
+          
 
                 return true;
             }
@@ -203,24 +204,7 @@ namespace FlightBooking.BLL
                     SendSuccessEmail(booking, "Change To Value successful.");
                     return true;
                 }
-            
-
-                //// Simulate payment process
-                //bool paymentSuccessful = SimulatePayment(model.newPaymentAmount);
-                //if (paymentSuccessful)
-                //{
-                //    booking.OutboundPriceType = "Value";
-                //    booking.ReturnPriceType = "Value";
-                //    request.Status = "Actioned";
-                //    _context.SaveChanges();
-                //    SendSuccessEmail(booking, "Change To Value successful.");
-                //    return true;
-                //}
-                //else
-                //{
-                //    SendFailureEmail(booking, "Payment failed. Please try again.");
-                //    return false;
-                //}
+              
             }
             else
             {
@@ -229,16 +213,7 @@ namespace FlightBooking.BLL
             }
         }
 
-        bool SimulatePayment(decimal amount)
-        {
-            // Simulate a successful payment
-            // For example, you could use a simple random chance of success/failure for demonstration purposes.
-            Random random = new Random();
-            return random.Next(0, 100) < 90; // 90% chance of successful payment
-        }
-
-
-
+     
 
         private decimal CalculateTotalPriceDifference(TblBooking booking)
         {
@@ -264,6 +239,33 @@ namespace FlightBooking.BLL
 
             return outboundPriceDifference + returnPriceDifference;
         }
+        private decimal CalculateRefundPrice(TblBooking booking)
+        {
+            decimal refundAmount = 0;
+
+            // Calculate refund for outbound flight if it is of type "Value"
+            if (booking.OutboundPriceType.Equals("Value", StringComparison.OrdinalIgnoreCase))
+            {
+                var outboundFlight = _context.TblFlight.FirstOrDefault(f => f.FlightId == booking.OutboundFlightId);
+                if (outboundFlight != null)
+                {
+                    refundAmount += outboundFlight.ValuePrice - outboundFlight.EconomyPrice;
+                }
+            }
+
+            // Calculate refund for return flight if it exists and is of type "Value"
+            if (booking.ReturnFlightId.HasValue && booking.ReturnPriceType.Equals("Value", StringComparison.OrdinalIgnoreCase))
+            {
+                var returnFlight = _context.TblFlight.FirstOrDefault(f => f.FlightId == booking.ReturnFlightId.Value);
+                if (returnFlight != null)
+                {
+                    refundAmount += returnFlight.ValuePrice - returnFlight.EconomyPrice;
+                }
+            }
+
+            return refundAmount;
+        }
+
 
 
         private void SendPaymentEmail(TblBooking booking, string message)
@@ -279,6 +281,37 @@ namespace FlightBooking.BLL
             }
         }
 
+        private void SendRefundEmail(TblBooking booking, string message)
+        {
+            var passenger = _context.TblPassengerDetails
+                .FirstOrDefault(p => p.PassengerId == booking.PassengerId);
+            if (passenger != null)
+            {
+                var subject = "Request Update";
+                var confirmationNumber = booking.ConfirmationNumber;
+                var body = GenerateRefundEmailBody(message, confirmationNumber, booking.TotalAmount + CalculateTotalPriceDifference(booking));
+                _emailService.SendEmailAsync(passenger.Email, subject, body);
+            }
+        }
+
+        private static string GenerateRefundEmailBody(string message, string confirmationNumber, decimal newTotalAmount)
+        {
+            //var ngrokUrl = "https://abcdef.ngrok.io";
+            //var paymentLink = $"{ngrokUrl}/paymentrequest.html?confirmationNumber={confirmationNumber}&amount={additionalAmount}";
+
+            var paymentLink = $"http://localhost:31339/paymentrequest.html?confirmationNumber={confirmationNumber}&amount={newTotalAmount}";
+            return $@"
+        <html>
+        <body>
+            <h1>Request Update - Changed to Lite</h1>
+            <p>For Flight Booking: {confirmationNumber}</p>
+            <p>{message}</p>
+            <p>Please visit the system for your request update and await refund payment to process in 5 business days</p>
+           
+            <p>Best regards,<br/>Pacific Link</p>
+        </body>
+        </html>";
+        }
         private static string GeneratePayEmailBody(string message, string confirmationNumber, decimal newTotalAmount)
         {
             //var ngrokUrl = "https://abcdef.ngrok.io";
@@ -292,7 +325,7 @@ namespace FlightBooking.BLL
             <p>For Flight Booking: {confirmationNumber}</p>
             <p>{message}</p>
             <p>Please visit the system to view your request status and proceed for payment:</p>
-            //<p><a href='{paymentLink}'>Make Payment</a></p>
+           
             <p>Best regards,<br/>Pacific Link</p>
         </body>
         </html>";
@@ -325,7 +358,7 @@ namespace FlightBooking.BLL
                 .FirstOrDefault(p => p.PassengerId == booking.PassengerId);
             if (passenger != null)
             {
-                var subject = "Booking Request Failure";
+                var subject = "Booking Request Update";
                 var confirmationNumber = booking.ConfirmationNumber;
                 var body = GenerateEmailBody(message, confirmationNumber);
                 _emailService.SendEmailAsync(passenger.Email, subject, body);

@@ -171,6 +171,7 @@
                     ConfirmationNumber: $('#confirmationNumber').val(),
                     Action: $('#action').val(),
                     Comment: $('#comment').val(),
+                    UploadDocuments: $('#action').val() == '5' ? 'Yes' : 'No',
                     DocumentBase64: null
                 };
 
@@ -191,7 +192,7 @@
                     var reader = new FileReader();
                     reader.onload = function (e) {
                         requestData.DocumentBase64 = e.target.result.split(',')[1]; // Get the Base64 string
-                        sendRequest(requestData); // Send the request after file is read
+                        view.sendRequest(requestData); // Send the request after file is read
                     };
                     reader.readAsDataURL(file);
                 } else {

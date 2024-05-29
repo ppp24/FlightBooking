@@ -6,6 +6,7 @@
     'text!src/request/temp/pendingmodal.html',
     'text!src/request/temp/actionedrow.html',
     'text!src/request/temp/paymentrequest.html',
+    'text!src/request/temp/reportrow.html',
 
 
     //plug-ins
@@ -40,6 +41,7 @@
                 pendingmodal: require('text!src/request/temp/pendingmodal.html'),
                 actionedrow: require('text!src/request/temp/actionedrow.html'),
                 paymentrequest: require('text!src/request/temp/paymentrequest.html'),
+                reportrow: require('text!src/request/temp/reportrow.html'),
 
             },
             events: {
@@ -48,6 +50,7 @@
                 'click #saveChanges': 'SaveRequestAdmin',
                 'click #actioned-tab': 'actionedTab',
                 'click #makePaymentBtn': 'requestPayment',
+                'click #report-tab': 'reportTab',
             },
 
 
@@ -87,15 +90,71 @@
                 });
 
             },
+          
+            reportTab: function () {
+                var view = this;
+                $('#dateForm').on('submit', function (event) {
+                    event.preventDefault();
+                    var startDate = $('#startDate').val();
+                    var endDate = $('#endDate').val();
 
-            ////request status pending payment
-            //requestPayment: function (e) {
-            //    var view = this;
-            //    view.$el.html("");
-            //    view.$el.append(_.template(this.templates.paymentrequest));
-            //},
+                    $.ajax({
+                        url: '/Requests/ViewRequestReport',
+                        type: 'GET',
+                        data: {
+                            startDate: startDate,
+                            endDate: endDate
+                        },
+                        success: function (data) {
+                            view.$el.find("#reportbody").html(''); // Clear previous results
+                            if (data && data.length > 0) {
+                                _.each(data, function (response) {
+                                    // Map the action value to the action name
+                                    response.action = actionNames[response.action] || response.action; // Default to value if no match found
+                                    var row = _.template(view.templates.reportrow, response);
+                                    view.$el.find("#reportbody").append(row);
+                                });
+                                view.renderDataTable("#reportbl", true, 0, "asc");
+                            } else {
+                                view.$el.find('#reportbody').html('<tr><td colspan="6">No requests found for the selected dates.</td></tr>');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            // console.error("Error fetching data: ", xhr.responseText);
+                            view.$el.find('#reportbody').html('<tr><td colspan="6">Failed to load data.</td></tr>');
+                            alert("Failed to load. Please try again.");
+                        }
+                    });
+                });
+            },
 
-
+            validateform: function (formName) {
+                $(formName).validate({
+                    rules: {
+                        startDate: {
+                            required: true,
+                            minlength: 6,
+                            maxlength: 6
+                        },
+                        endDate: {
+                            required: true,
+                            minlength: 2
+                        },
+                    },
+                    messages: {
+                        startDate: {
+                            required: "Please select start date",
+                        },
+                        endDate: {
+                            required: "Please select end date",
+                        },
+                    },
+                    errorClass: 'text-danger',
+                    errorPlacement: function (error, element) {
+                        error.insertBefore(element.parent());
+                    }
+                });
+            },
 
             ViewRequest: function (e) {
                 var view = this;

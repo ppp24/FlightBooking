@@ -9,6 +9,7 @@
         public string Comment {  get; set; } 
         public string? DocumentBase64 { get; set; }
         public DateTime RequestDate { get; set; } = DateTime.Now;
+        public string UploadDocuments { get; set; } 
 
 
       

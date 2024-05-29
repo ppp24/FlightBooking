@@ -195,17 +195,21 @@
                         <option value="5">Upload Doc</option>
                     </select>
                 </div>
-                <div class="form-group hidden" id="uploadDocGroup">
+                <!--<div class="form-group hidden" id="uploadDocGroup">
+        <label for="document">Upload Document</label>
+        <input type="file" class="form-control-file" id="document" name="document" accept="image/*">
+    </div>-->
+                <div class="form-group" id="documentUpload" style="display:none;">
                     <label for="document">Upload Document</label>
-                    <input type="file" class="form-control-file" id="document" name="document" accept="image/*">
+                    <input type="file" class="form-control" id="document">
                 </div>
                 <div class="form-group">
                     <label for="comment">Comment</label>
                     <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
                 </div>
-           
 
-            <button type="submit" id="submitUpgradeRequest">Submit Upgrade Request</button>
+
+                <button type="submit" id="submitUpgradeRequest">Submit Upgrade Request</button>
             </form>
         </div>
     </div>
@@ -259,13 +263,29 @@
                 });
             });
 
+            //$('#action').change(function () {
+            //    if ($(this).val() == '5') {
+            //        $('#uploadDocGroup').removeClass('hidden');
+            //    } else {
+            //        $('#uploadDocGroup').addClass('hidden');
+            //    }
+            //});
+
             $('#action').change(function () {
                 if ($(this).val() == '5') {
-                    $('#uploadDocGroup').removeClass('hidden');
+                    $('#documentUpload').show();
                 } else {
-                    $('#uploadDocGroup').addClass('hidden');
+                    $('#documentUpload').hide();
                 }
             });
+
+            // Trigger the change event on page load to set the correct initial state
+            $('#action').trigger('change');
+
+
+
+
+
 
             $('#requestupgrade').on('click', function () {
                 $('#upgradeModal').css('display', 'block');

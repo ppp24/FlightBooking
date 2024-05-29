@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bV7/FvdT/6QfWGMDdz9cA+Wp1KuFwGhv6JVS8eT7j+0=",
+  "Hash": "gg+513D0jjoeP0SPP+vbTPfx1E1TlQ3DjlbUlbDDgHw=",
   "Source": "FlightBooking",
   "BasePath": "_content/FlightBooking",
   "Mode": "Default",
@@ -57167,6 +57167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js2\\src\\request\\temp\\pendingrow.html"
+    },
+    {
+      "Identity": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\temp\\reportrow.html",
+      "SourceId": "FlightBooking",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\",
+      "BasePath": "_content/FlightBooking",
+      "RelativePath": "js2/src/request/temp/reportrow.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js2\\src\\request\\temp\\reportrow.html"
     },
     {
       "Identity": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\view\\request.js",

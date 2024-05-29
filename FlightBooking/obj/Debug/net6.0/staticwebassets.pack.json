@@ -11717,6 +11717,10 @@
       "PackagePath": "staticwebassets\\js2\\src\\request\\temp\\pendingrow.html"
     },
     {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\temp\\reportrow.html",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\temp\\reportrow.html"
+    },
+    {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\view\\request.js",
       "PackagePath": "staticwebassets\\js2\\src\\request\\view\\request.js"
     },

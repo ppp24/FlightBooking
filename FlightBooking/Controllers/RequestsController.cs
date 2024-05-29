@@ -63,6 +63,7 @@ namespace FlightBooking.Controllers
                     if (model.DocumentBase64 != null)
                     {
                         request.DocumentPath = SaveFile(model.DocumentBase64);
+                        request.UploadDocuments = model.UploadDocuments;
                     }
 
                     context.TblRequests.Add(request);
@@ -171,7 +172,7 @@ namespace FlightBooking.Controllers
             }
 
             var requests = await _context.TblRequests
-                .Where(r => r.ConfirmationNumber == confirmationNumber && r.Status == "Pending")
+                .Where(r => r.ConfirmationNumber == confirmationNumber && (r.Status == "Pending" || r.Status == "Pending Payment") )
                 .ToListAsync();
 
             if (requests == null || !requests.Any())
@@ -190,6 +191,32 @@ namespace FlightBooking.Controllers
             return Json(result);
         }
 
+        [HttpGet]
+        [Route("/Requests/ViewRequestReport")]
+        public async Task<IActionResult> ViewRequestReport([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+        {
+            if (startDate > endDate)
+            {
+                return BadRequest("Start date cannot be later than end date.");
+            }
 
+            var requests = _context.TblRequests
+                .Where(r => r.RequestDate >= startDate && r.RequestDate <= endDate)
+                .Select(r => new
+                {
+                    r.Id,
+                    r.ConfirmationNumber,
+                    r.RequestDate,
+                    r.Action,
+                    r.DocumentPath,
+                    r.ResponseMessage,
+                    r.Status,
+                   
+                })
+                .ToList();
+
+            return Ok(requests);
+        }
     }
+
 }
