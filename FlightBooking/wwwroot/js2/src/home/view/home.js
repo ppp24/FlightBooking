@@ -12,6 +12,10 @@
     'text!src/home/temp/passengerDetails.html',
     'text!src/home/temp/itineraryPage.html',
     'text!src/home/temp/searchBookings.html',
+    'text!src/home/temp/requestform.html',
+    'text!src/home/temp/managereq.html',
+    'text!src/home/temp/paymentrequest.html',
+
 
     //plug-ins
     //https://unpkg.com/sweetalert/dist/sweetalert.min.js',
@@ -50,6 +54,10 @@
                 /*bookingPage: require('text!src/home/temp/bookingPage.html'),*/
                 itinerary: require('text!src/home/temp/itineraryPage.html'),
                 searchBookings: require('text!src/home/temp/searchBookings.html'),
+                requestform: require('text!src/home/temp/requestform.html'),
+                managereq: require('text!src/home/temp/managereq.html'),
+                paymentrequest: require('text!src/home/temp/paymentrequest.html'),
+                
             },
             events: {
                 /*  'change #fromAirport': 'fetchlocation',*/
@@ -59,7 +67,7 @@
                 'click #bookingbtn': 'bookingPage',
                 'click #returnecobtn': 'returnOption',
                 'click #passengerDetails': 'isUserLoggedIn',
-               /* 'click #confirmpass': 'savePassengerDetails',*/
+                /* 'click #confirmpass': 'savePassengerDetails',*/
                 'click #confirmpass': 'handleFormSubmit',
                 'click #proceedToPayment': 'proceedToPayment',
                 'click #backBtn': 'backBtn',
@@ -69,6 +77,10 @@
                 'click #manageBook': 'getsearchform',
                 'click #searchbookin': 'searchbooking',
                 'click #requestupgrade': 'requestupgradeform',
+                'click #submitUpgradeRequest': 'submitrequest',
+                'click #managerequest': 'managerequest',
+                'click #makePaymentBtn': 'requestPayment',
+                'click #confirmPayment': 'confirmPayment',
 
             },
 
@@ -88,9 +100,147 @@
             getsearchform: function () {
                 var view = this;
                 view.$el.html("");
-                view.$el.append(_.template(view.templates.searchBookings)); 
+                view.$el.append(_.template(view.templates.searchBookings));
 
             },
+
+            //request status pending payment
+            requestPayment: function (e) {
+                var view = this;
+                view.$el.html("");
+                view.$el.append(_.template(this.templates.paymentrequest));
+                view.validateform('#paymentForm');
+            },
+
+            confirmPayment: function (event) {
+                var view = this;
+                event.preventDefault();
+                if ($('#paymentForm').valid()) {
+                    var paymentData = {
+                        cardNumber: $('#cardNumber').val(),
+                        cardName: $('#cardName').val(),
+                        expiryMonth: $('#expiryMonth').val(),
+                        expiryYear: $('#expiryYear').val(),
+                        confirmationNumber: $('#confirmationNumber').val(),
+                        newPaymentAmount: $('#newPaymentAmount').val(),
+                        cvv: $('#cvv').val(),
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "/Requests/CompletePaymentAndUpdateRecords",
+                        data: JSON.stringify(paymentData), // Send requestData as JSON
+                        contentType: "application/json; charset=utf-8",
+                        success: function (response) {
+                            if (response == true) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success!',
+                                    text: 'Payment successful.'
+                                });
+                                window.location.reload();
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error!',
+                                    text: 'Failed. Please try again later.'
+                                });
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'An error occurred while processing your request. Please try again later.'
+                            });
+                        }
+                    });
+                }
+            },
+
+            managerequest: function () {
+                var view = this;
+                view.$el.html("");
+                view.$el.append(_.template(view.templates.managereq));
+            },  
+            submitrequest: function (event) {
+                var view = this;
+                event.preventDefault(); // Prevent default form submission
+
+                // Create a JSON object with form data
+                var requestData = {
+                    ConfirmationNumber: $('#confirmationNumber').val(),
+                    Action: $('#action').val(),
+                    Comment: $('#comment').val(),
+                    DocumentBase64: null
+                };
+
+                // Check if document upload is required
+                if ($('#action').val() == '5') {
+                    var file = $('#document')[0].files[0];
+                    if (!file) {
+                        // No file selected, show error message
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: 'Please select a file to upload.'
+                        });
+                        return; // Exit the function
+                    }
+
+                    // Convert file to Base64
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        requestData.DocumentBase64 = e.target.result.split(',')[1]; // Get the Base64 string
+                        sendRequest(requestData); // Send the request after file is read
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    view.sendRequest(requestData); // Send the request if no file upload
+                }
+            },
+
+            sendRequest: function (requestData) {
+                // Log requestData to console for debugging
+                console.log('Request Data:', requestData);
+
+                // Make the AJAX call to submit the JSON data
+                $.ajax({
+                    type: "POST",
+                    url: "/Requests/SubmitRequest",
+                    data: JSON.stringify(requestData), // Send requestData as JSON
+                    contentType: "application/json; charset=utf-8",
+                    success: function (response) {
+                        if (response.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: 'Your request has been submitted successfully.'
+                            });
+                            window.location.reload();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'Failed to submit your request. Please try again later.'
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: 'An error occurred while processing your request. Please try again later.'
+                        });
+                    }
+                });
+            },
+
+
+
+
+
+
+
             searchbooking: function () {
                 var view = this;
                 $('#booking-form').on('submit', function (event) {
@@ -150,24 +300,6 @@
             },
 
 
-
-            //validateform: function (formName) {
-            //    $(formName).validate({
-            //        rules: {
-            //            fromAirport: "required",
-            //            toAirport: "required",
-            //        },
-            //        messages: {
-            //            fromAirport: { required: " Please select departure airport" },
-            //            toAirport: { required: " Please select arrival airport" },
-
-            //        },
-            //        errorClass: 'text-danger',
-            //        errorPlacement: function (error, element) {
-            //            error.insertBefore(element.parent());
-            //        }
-            //    });
-            //},
 
 
             showflights: function () {
@@ -266,7 +398,7 @@
                                     arrivalAirport: response.arrivalAirport,
                                     departureTime: departureTime,
                                     arrivalTime: arrivalTime,
-                                    selectedOption: 'lite',
+                                    selectedOption: 'Lite',
                                     price: economyPrice,
                                     departureAirportId: response.departureAirportId,
                                     arrivalAirportId: response.arrivalAirportId
@@ -294,7 +426,7 @@
                                 $('input[name="flightOption"]').change(function () {
                                     var selectedOption = $('input[name="flightOption"]:checked').val();
                                     view.selectedFlightOption.selectedOption = selectedOption;
-                                    view.selectedFlightOption.price = selectedOption === 'lite' ? economyPrice : valuePrice;
+                                    view.selectedFlightOption.price = selectedOption === 'Lite' ? economyPrice : valuePrice;
                                 });
                             } else {
                                 // Handle case where flight data is not received
@@ -374,7 +506,7 @@
                                 $('input[name="returnFlightOption"]').change(function () {
                                     var selectedOption = $('input[name="returnFlightOption"]:checked').val();
                                     view.selectedReturnOption.selectedOption = selectedOption;
-                                    view.selectedReturnOption.price = selectedOption === 'lite' ? economyPrice : valuePrice;
+                                    view.selectedReturnOption.price = selectedOption === 'Lite' ? economyPrice : valuePrice;
 
                                 });
                             });
@@ -434,11 +566,11 @@
                                     arrivalAirport: response.arrivalAirport,
                                     departureTime: departureTime,
                                     arrivalTime: arrivalTime,
-                                    selectedOption: 'lite',
+                                    selectedOption: 'Lite',
                                     price: economyPrice,
                                     departureAirportId: response.departureAirportId,
                                     arrivalAirportId: response.arrivalAirportId,
-                                    specialRequests: 'lite',
+                                    specialRequests: 'Lite',
                                 };
 
                                 $('#litePrice').text(economyPrice);
@@ -461,12 +593,12 @@
                                 $('input[name="flightOption"]').change(function () {
                                     var selectedOption = $('input[name="flightOption"]:checked').val();
                                     view.selectedReturnOption.selectedOption = selectedOption;
-                                    view.selectedReturnOption.price = selectedOption === 'lite' ? economyPrice : valuePrice;
+                                    view.selectedReturnOption.price = selectedOption === 'Lite' ? economyPrice : valuePrice;
                                 });
                                 $('input[name="flightOption"]').change(function () {
                                     var specialRequests = $('input[name="flightOption"]:checked').val();
                                     view.selectedReturnOption.specialRequests = specialRequests;
-                                    view.selectedReturnOption.price = specialRequests === 'lite' ? economyPrice : valuePrice;
+                                    view.selectedReturnOption.price = specialRequests === 'Lite' ? economyPrice : valuePrice;
                                 });
                             } else {
                                 // Handle case where flight data is not received
@@ -751,7 +883,7 @@
                             } else {
                                 // Show success modal
                                 view.bookingPage();
-                               /* $('#successModal').modal('show');*/
+                                /* $('#successModal').modal('show');*/
                                 var passengerId = response;
 
                                 // Saving passenger ID in selected options
@@ -767,7 +899,7 @@
                                     selectedReturnOption.passengerId = passengerId;
                                     localStorage.setItem('selectedReturnOption', JSON.stringify(selectedReturnOption));
                                 }
-                               
+
 
                             }
                         },
@@ -806,7 +938,12 @@
                     ReturnArriveAirport: selectedReturnOption ? selectedReturnOption.arrivalAirport : null,
                     TotalAmount: selectedFlightOption.price + (selectedReturnOption ? selectedReturnOption.price : 0),
                     PaymentStatus: "Successful", // Initial status, may be updated by backend after payment
-                    SpecialRequests: selectedReturnOption ? selectedReturnOption.specialRequests : null
+                    SpecialRequests: selectedReturnOption ? selectedReturnOption.specialRequests : null,
+                    OutboundPriceType: selectedFlightOption.selectedOption,
+                    OutboundPrice: selectedFlightOption.price,
+                    ReturnPriceType: selectedReturnOption.selectedOption,
+                    ReturnPrice: selectedReturnOption.price,
+
                 };
 
                 // Make an AJAX request to save booking details
@@ -935,7 +1072,7 @@
                 view.validateform("#paymentForm");
             },
 
-            
+
             makePayment: function () {
                 event.preventDefault();
                 var view = this;

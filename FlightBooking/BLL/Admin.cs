@@ -138,6 +138,7 @@ namespace FlightBooking.BLL
                             FlightName = model.FlightName,
                             EconomyPrice = model.EconomyPrice,
                             BusinessPrice = model.BusinessPrice,
+                            ValuePrice = model.EconomyPrice + 100,
                             DepartureTime = model.DepartureTime,
                             ArrivalTime = model.ArrivalTime,
                             DepartureAirportId = model.DepartureAirportId,

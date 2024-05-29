@@ -107,6 +107,15 @@ namespace FlightBooking.Controllers
             return Json(result);
         }
 
+        //submit customer request upgrade
+
+        //[HttpPost]
+        //[Route("/Home/SubmitRequest")]
+        //public JsonResult SubmitRequest([FromBody] PaymentDetailsVM model)
+        //{
+        //    var result = BLL.Home.SubmitRequest(model);
+        //    return Json(new { success = result });
+        //}
 
 
     }

@@ -71,6 +71,10 @@ namespace FlightBooking.BLL
                         ReturnArriveAirport = model.ReturnArriveAirport,
                         ReturnDepartTime = model.ReturnDepartTime,
                         ReturnArriveTime = model.ReturnArriveTime,
+                        OutboundPriceType = model.OutboundPriceType,
+                        OutboundPrice = model.OutboundPrice,
+                        ReturnPriceType = model.ReturnPriceType,
+                        ReturnPrice = model.ReturnPrice,
                         BookingDate = DateTime.Now,
                         TotalAmount = model.TotalAmount,
                         PaymentStatus = "Successful",
@@ -216,7 +220,6 @@ namespace FlightBooking.BLL
         }
 
         //get bookings tbl for customers based on email address
-
         public static async Task<ManageBookingVM> GetBookingByReference(string confirmationNumber)
         {
             using (var db = new ApplicationDbContext())
@@ -226,32 +229,42 @@ namespace FlightBooking.BLL
                     .Select(b => new ManageBookingVM
                     {
                         BookingId = b.BookingId,
+                        PassengerId = b.PassengerId,
                         OutboundFlightId = b.OutboundFlightId,
                         OutboundDepartTime = b.OutboundDepartTime,
                         OutboundArriveTime = b.OutboundArriveTime,
+                        ReturnFlightId = (int?)b.ReturnFlightId,
                         ReturnDepartTime = b.ReturnDepartTime,
                         ReturnArriveTime = b.ReturnArriveTime,
                         OutboundDepartAirport = b.OutboundDepartAirport,
                         OutboundArriveAirport = b.OutboundArriveAirport,
-                        ReturnFlightId = (int?)b.ReturnFlightId,
                         ReturnDepartAirport = b.ReturnDepartAirport,
                         ReturnArriveAirport = b.ReturnArriveAirport,
                         TotalAmount = b.TotalAmount,
                         PaymentStatus = b.PaymentStatus,
                         SpecialRequests = b.SpecialRequests,
                         ConfirmationNumber = b.ConfirmationNumber,
+                        OutboundPriceType = b.OutboundPriceType,
+                        OutboundPrice = b.OutboundPrice,
+                        ReturnPriceType = b.ReturnPriceType,
+                        ReturnPrice = b.ReturnPrice,
 
-                        // Joining with TblPassengerDetails to get passenger details
-                        Passenger = db.TblPassengerDetails
+                        // Directly map passenger details to properties in ManageBookingVM
+                        FirstName = db.TblPassengerDetails
                             .Where(p => p.PassengerId == b.PassengerId)
-                            .Select(p => new PassengerDetails
-                            {
-                                FirstName = p.FirstName,
-                                LastName = p.LastName,
-                                Email = p.Email,
-                                Phone = p.PhoneContact
-                                // Add more properties if needed
-                            })
+                            .Select(p => p.FirstName)
+                            .FirstOrDefault(),
+                        LastName = db.TblPassengerDetails
+                            .Where(p => p.PassengerId == b.PassengerId)
+                            .Select(p => p.LastName)
+                            .FirstOrDefault(),
+                        Email = db.TblPassengerDetails
+                            .Where(p => p.PassengerId == b.PassengerId)
+                            .Select(p => p.Email)
+                            .FirstOrDefault(),
+                        PhoneContact = db.TblPassengerDetails
+                            .Where(p => p.PassengerId == b.PassengerId)
+                            .Select(p => p.PhoneContact)
                             .FirstOrDefault()
                     })
                     .FirstOrDefaultAsync();
@@ -259,6 +272,8 @@ namespace FlightBooking.BLL
                 return booking;
             }
         }
+
+
 
 
 

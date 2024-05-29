@@ -31,6 +31,10 @@ namespace FlightBooking.Areas.Identity.Data
         public DateTime? ReturnArriveTime { get; set; }
         public string OutboundDepartAirport { get; set; }
         public string OutboundArriveAirport { get; set; }
+        public string OutboundPriceType { get; set; }
+        public int OutboundPrice { get; set; }
+        public int ReturnPrice { get; set; }
+        public string ReturnPriceType { get; set; }
         public string? ReturnDepartAirport { get; set; }
         public string? ReturnArriveAirport { get; set; }
 

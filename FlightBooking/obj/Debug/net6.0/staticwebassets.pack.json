@@ -11645,12 +11645,24 @@
       "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\itineraryPage.html"
     },
     {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\managereq.html",
+      "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\managereq.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\newrequest.html",
+      "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\newrequest.html"
+    },
+    {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\passengerDetails.html",
       "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\passengerDetails.html"
     },
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\payment.html",
       "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\payment.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\paymentrequest.html",
+      "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\paymentrequest.html"
     },
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\requestform.html",
@@ -11679,6 +11691,34 @@
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\view\\home.js",
       "PackagePath": "staticwebassets\\js2\\src\\home\\view\\home.js"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\init_request.js",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\init_request.js"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\temp\\actionedrow.html",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\temp\\actionedrow.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\temp\\allrequests.html",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\temp\\allrequests.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\temp\\paymentrequest.html",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\temp\\paymentrequest.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\temp\\pendingmodal.html",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\temp\\pendingmodal.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\temp\\pendingrow.html",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\temp\\pendingrow.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\request\\view\\request.js",
+      "PackagePath": "staticwebassets\\js2\\src\\request\\view\\request.js"
     },
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\text.js",

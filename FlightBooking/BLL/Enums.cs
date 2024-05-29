@@ -42,5 +42,13 @@
            Delayed = 5,
           
         }
+        public enum RequestStatus
+        {
+            ChangeToValue = 1,
+            ChangeToLite = 2,
+            NoChange = 3,
+            ApplyForLoyality = 4,
+            UploadDoc = 5,
+        }
     }
 }

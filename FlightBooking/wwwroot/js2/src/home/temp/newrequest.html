@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Request</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="upgradeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Request</h2>
+            <form id="requestForm" action="/Requests/SaveRequestAdmin" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="confirmationNumber">Confirmation Number</label>
+                    <input type="text" class="form-control" id="confirmationNumber" name="confirmationNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="action">Action</label>
+                    <select name="action" id="action" class="form-control" required>
+                        <option value="1">Change To Value</option>
+                        <option value="2">Change To Lite</option>
+                        <option value="4">Apply For Loyalty</option>
+                        <option value="5">Upload Doc</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="uploadDocGroup">
+                    <label for="document">Upload Document</label>
+                    <input type="file" class="form-control-file" id="document" name="document" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#action').change(function () {
+                if ($(this).val() == '5') {
+                    $('#uploadDocGroup').removeClass('hidden');
+                } else {
+                    $('#uploadDocGroup').addClass('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

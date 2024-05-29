@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+<h1 style="text-align:left"><span class="glyphicon glyphicon-home"></span> Manage Requests </h1>
+<br />
+
+
+<div id="request_container">
+</div>
+
+<script type="text/javascript">
+    var activeTabId = '#' + '@ViewBag.activeTab';
+    console.log(activeTabId);
+
+    $(activeTabId).addClass("active1");
+
+    require(['jquery', 'src/request/init_request'],
+        function ($, request) {
+            $(document).ready(function () {
+                request();
+            });
+        });
+</script>
+

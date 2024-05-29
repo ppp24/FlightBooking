@@ -22,9 +22,13 @@
         public string Email { get; set; }
         public string PhoneContact { get; set; }
         public string ConfirmationNumber { get; set; }
+        public string OutboundPriceType { get; set; }
+        public int OutboundPrice { get; set; }
+        public int ReturnPrice { get; set; }
+        public string ReturnPriceType { get; set; }
 
         // Define a property for Passenger details
-        public PassengerDetails Passenger { get; set; }
+        //  public PassengerDetails Passenger { get; set; }
 
         public string OutboundDepartTimeFormatted => OutboundDepartTime.ToString("yyyy-MM-dd HH:mm:ss");
         public string OutboundArriveTimeFormatted => OutboundArriveTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -33,12 +37,12 @@
     }
 
     // Define a class for Passenger details
-    public class PassengerDetails
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        // Add more properties if needed
-    }
+    //public class PassengerDetails
+    //{
+    //    public string FirstName { get; set; }
+    //    public string LastName { get; set; }
+    //    public string Email { get; set; }
+    //    public string Phone { get; set; }
+    //    // Add more properties if needed
+    //}
 }

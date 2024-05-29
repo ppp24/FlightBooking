@@ -21,6 +21,7 @@ namespace FlightBooking.Areas.Identity.Data
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal BusinessPrice { get; set; }
+        public decimal ValuePrice { get; set; }
 
         [Required]
         public DateTime DepartureTime { get; set; }

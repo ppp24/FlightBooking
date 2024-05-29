@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Booking</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .form-group {
+            margin-left: 40%;
+        }
+
+        h1 {
+            color: #004080;
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            display: block;
+        }
+
+        button {
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .booking-details {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+            .booking-details h3 {
+                color: #004080;
+            }
+
+            .booking-details p {
+                margin: 5px 0;
+            }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .checkbox-label,
+        .radio-label {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+            .checkbox-label input,
+            .radio-label input {
+                margin-right: 10px;
+            }
+
+        #documentUpload {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Manage Requests</h1>
+
+    <form id="requestForm">
+        <div class="form-group">
+            <label for="confirmationNumberInput">Enter Confirmation Number:</label>
+            <input type="text" id="confirmationNumberInput" name="confirmationNumber" required />
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <p id="error-message" class="error"></p>
+    <div id="booking-details" class="booking-details" style="display: none;">
+        <h3>Request Details</h3>
+        <p>Please note that only pending request details are dispalyed here</p>
+        <p><strong>Confirmation Number:</strong> <span id="confirmationNumberDisplay"></span></p>
+        <p><strong>Action:</strong> <span id="actionDisplay"></span></p>
+        <p><strong>Request Date:</strong> <span id="requestDateDisplay"></span></p>
+        <p><strong>Status:</strong> <span id="statusDisplay"></span></p>
+        <p><strong>Response Message:</strong> <span id="responseDisplay"></span></p>
+        <p><strong>Additional Payment:</strong> <span id="newAmount"></span></p>
+        <button id="makePaymentBtn" style="display: none;">Make Payment</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#requestForm').on('submit', function (event) {
+                event.preventDefault();
+                const confirmationNumber = $('#confirmationNumberInput').val();
+
+                $.ajax({
+                    url: '/Request/GetRequestsByConfirmationNumber',
+                    type: 'GET',
+                    data: { confirmationNumber: confirmationNumber },
+                    success: function (data) {
+                        console.log('Data returned from backend:', data); // Log the data returned from backend
+
+                        // Check if data is an array and has at least one element
+                        if (Array.isArray(data) && data.length > 0) {
+                            const requestData = data[0]; // Access the first element of the array
+
+                            $('#confirmationNumberDisplay').text(requestData.confirmationNumber);
+                            $('#actionDisplay').text(requestData.action);
+                            $('#requestDateDisplay').text(requestData.requestDate);
+                            $('#statusDisplay').text(requestData.status);
+                            $('#responseDisplay').text(requestData.responseMessage);
+                            $('#newAmount').text(requestData.newPaymentAmount);
+
+                            $('#booking-details').show();
+                            $('#error-message').text('');
+
+                            // Show the Make Payment button if status is Pending Payment
+                            if (requestData.status === 'Pending Payment') {
+                                $('#makePaymentBtn').show();
+                            } else {
+                                $('#makePaymentBtn').hide();
+                            }
+                        } else {
+                            $('#booking-details').hide();
+                            $('#error-message').text('No booking found with the provided reference.');
+                        }
+                    },
+                    error: function () {
+                        $('#booking-details').hide();
+                        $('#error-message').text('An error occurred while searching for the booking.');
+                    }
+                });
+            });
+
+            //$('#makePaymentBtn').on('click', function () {
+            //    // Handle the payment process here
+            //    alert('Redirecting to payment gateway...');
+            //    // You can add your payment processing logic here
+            //});
+        });
+    </script>
+</body>
+</html>

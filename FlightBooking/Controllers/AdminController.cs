@@ -31,6 +31,13 @@ namespace FlightBooking.Controllers
             return View();
         }
 
+        public IActionResult ManageRequests()
+        {
+            ViewBag.activeTab = "mrequests";
+            return View();
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> GetAirports()
         {

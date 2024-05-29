@@ -1,10 +1,33 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿
+<!--<div id="upgradeModal" class="modal">-->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Upgrade Options</h2>
+        <form id="upgradeForm" enctype="multipart/form-data">
+            <label for="EditPlan">Edit Plan</label>
+            <select id="EditPlan" name="EditPlan">
+                <option value="">Select an option</option>
+                <option value="lite">Lite</option>
+                <option value="value">Value</option>
+            </select>
 
-</body>
-</html>
+            <label for="ApplyLoyaltyProgram">Apply for Loyalty Program</label>
+            <select id="ApplyLoyaltyProgram" name="ApplyLoyaltyProgram">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <label for="UploadDocuments">Upload Document</label>
+            <select id="UploadDocuments" name="UploadDocuments">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <div id="documentUpload" style="display: none;">
+                <input type="file" id="fileUpload" name="fileUpload">
+            </div>
+
+            <button type="submit" id="submitUpgradeRequest">Submit Upgrade Request</button>
+        </form>
+    </div>
+<!--</div>-->

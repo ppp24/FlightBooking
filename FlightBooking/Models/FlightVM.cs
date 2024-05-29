@@ -14,6 +14,7 @@ public class FlightVM
     public string FlightNumber { get; set; }
     public decimal EconomyPrice { get; set; }
     public decimal BusinessPrice { get; set; }
+    public decimal ValuePrice { get; set; }
     public int DepartureAirportId { get; set; }
     public int ArrivalAirportId { get; set; }
     public DateTime DepartureTime { get; set; }

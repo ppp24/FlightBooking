@@ -16,5 +16,9 @@
         public decimal TotalAmount { get; set; }
         public string PaymentStatus { get; set; }
         public string SpecialRequests { get; set; }
+        public string OutboundPriceType { get; set; }
+        public int OutboundPrice { get; set; }
+        public int ReturnPrice { get; set; }
+        public string ReturnPriceType { get; set; }
     }
 }

@@ -115,7 +115,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("AirportId");
 
-                    b.ToTable("tbl_airport", (string)null);
+                    b.ToTable("tbl_airport");
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblBooking", b =>
@@ -149,6 +149,13 @@ namespace FlightBooking.Migrations
                     b.Property<int>("OutboundFlightId")
                         .HasColumnType("int");
 
+                    b.Property<int>("OutboundPrice")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OutboundPriceType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("PassengerId")
                         .HasColumnType("int");
 
@@ -172,6 +179,13 @@ namespace FlightBooking.Migrations
                     b.Property<int?>("ReturnFlightId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ReturnPrice")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReturnPriceType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SpecialRequests")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -188,7 +202,7 @@ namespace FlightBooking.Migrations
 
                     b.HasIndex("ReturnFlightId");
 
-                    b.ToTable("tbl_booking", (string)null);
+                    b.ToTable("tbl_booking");
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblDestinations", b =>
@@ -229,7 +243,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_destinations", (string)null);
+                    b.ToTable("tbl_destinations");
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblFlight", b =>
@@ -271,13 +285,16 @@ namespace FlightBooking.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("ValuePrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("FlightId");
 
                     b.HasIndex("ArrivalAirportId");
 
                     b.HasIndex("DepartureAirportId");
 
-                    b.ToTable("tbl_flight", (string)null);
+                    b.ToTable("tbl_flight");
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblPassengerDetails", b =>
@@ -353,7 +370,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("PassengerId");
 
-                    b.ToTable("tbl_passengerdetails", (string)null);
+                    b.ToTable("tbl_passengerdetails");
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblPayments", b =>
@@ -398,7 +415,7 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("PaymentId");
 
-                    b.ToTable("TblPayments", (string)null);
+                    b.ToTable("TblPayments");
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblPermissions", b =>
@@ -420,7 +437,51 @@ namespace FlightBooking.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_permissions", (string)null);
+                    b.ToTable("tbl_permissions");
+                });
+
+            modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblRequests", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DocumentPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("NewPaymentAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("RequestDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ResponseMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UploadDocuments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_requests");
                 });
 
             modelBuilder.Entity("FlightBooking.Areas.Identity.Data.TblRolePermissions", b =>
@@ -446,7 +507,7 @@ namespace FlightBooking.Migrations
 
                     b.HasIndex("permissionId");
 
-                    b.ToTable("tbl_role_permissions", (string)null);
+                    b.ToTable("tbl_role_permissions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
