@@ -57,7 +57,7 @@
                 requestform: require('text!src/home/temp/requestform.html'),
                 managereq: require('text!src/home/temp/managereq.html'),
                 paymentrequest: require('text!src/home/temp/paymentrequest.html'),
-                
+
             },
             events: {
                 /*  'change #fromAirport': 'fetchlocation',*/
@@ -81,6 +81,7 @@
                 'click #managerequest': 'managerequest',
                 'click #makePaymentBtn': 'requestPayment',
                 'click #confirmPayment': 'confirmPayment',
+                'click #bookingPdf': 'BookingPdf',
 
             },
 
@@ -103,6 +104,7 @@
                 view.$el.append(_.template(view.templates.searchBookings));
 
             },
+
 
             //request status pending payment
             requestPayment: function (e) {
@@ -161,7 +163,7 @@
                 var view = this;
                 view.$el.html("");
                 view.$el.append(_.template(view.templates.managereq));
-            },  
+            },
             submitrequest: function (event) {
                 var view = this;
                 event.preventDefault(); // Prevent default form submission

@@ -1,134 +1,198 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Booking</title>
     <style>
-        body {
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-           
-        }
+                body {
+                    background-color: #f9f9f9;
+                    margin: 0;
+                    padding: 0;
+                    color: #333;
+                }
 
-        .bookingcontainer {
-            max-width: 600px;
-            margin: 100px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+                .bookingcontainer {
+                    max-width: 600px;
+                    margin: 100px auto;
+                    padding: 20px;
+                    background: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
 
-        h1 {
-            color: #004080;
-            text-align: center;
-        }
+                h1 {
+                    color: #004080;
+                    text-align: center;
+                }
 
-        input, button {
-            /*width: calc(100% - 22px);*/
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            display: block;
-        }
+                input, button {
+                    padding: 10px;
+                    margin: 10px 0;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    font-size: 16px;
+                    display: block;
+                }
 
-        button {
-            background-color: #004080;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
+                button {
+                    background-color: #004080;
+                    color: #fff;
+                    border: none;
+                    cursor: pointer;
+                }
 
-        .booking-details {
-            margin-top: 20px;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
+                /*.booking-details {
+                    margin-top: 20px;
+                    padding: 20px;
+                    background: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                }
 
-            .booking-details h3 {
-                color: #004080;
-            }
+                    .booking-details h3 {
+                        color: #004080;
+                    }
 
-            .booking-details p {
-                margin: 5px 0;
-            }
+                    .booking-details p {
+                        margin: 5px 0;
+                    }
+        */
+                .booking-details {
+                   
+                    max-width: 600px;
+                    margin: 0 auto;
+                    border: 1px solid #ccc;
+                    border-radius: 10px;
+                    padding: 20px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
 
-        .error {
-            color: red;
-            text-align: center;
-        }
+                .header {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
+                .branding {
+                    max-width: 150px;
+                }
 
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 8px;
-        }
+                h3 {
+                    margin: 10px 0;
+                    color: #333;
+                }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+                .info, .flight-details, .payment-details {
+                    margin-bottom: 20px;
+                }
 
-            .close:hover,
-            .close:focus {
-                color: black;
-                text-decoration: none;
-                cursor: pointer;
-            }
+                    .flight-details h4, .payment-details h4 {
+                        margin-bottom: 10px;
+                        color: #0056b3;
+                        border-bottom: 1px solid #0056b3;
+                        padding-bottom: 5px;
+                    }
 
-        .checkbox-label,
-        .radio-label {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
+                p {
+                    margin: 5px 0;
+                    color: #555;
+                }
 
-            .checkbox-label input,
-            .radio-label input {
-                margin-right: 10px;
-            }
+                    p strong {
+                        color: #000;
+                    }
 
-        #documentUpload {
-            margin-top: 10px;
-        }
+                .error {
+                    color: red;
+                    text-align: center;
+                }
+
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgba(0, 0, 0, 0.4);
+                }
+
+                .modal-content {
+                    background-color: #fefefe;
+                    margin: 10% auto;
+                    padding: 20px;
+                    border: 1px solid #888;
+                    width: 80%;
+                    max-width: 500px;
+                    border-radius: 8px;
+                }
+
+                .close {
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+
+                    .close:hover,
+                    .close:focus {
+                        color: black;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                .checkbox-label,
+                .radio-label {
+                    display: flex;
+                    align-items: center;
+                    margin: 10px 0;
+                }
+
+                    .checkbox-label input,
+                    .radio-label input {
+                        margin-right: 10px;
+                    }
+
+                #documentUpload {
+                    margin-top: 10px;
+                }
+
+                .branding {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                    .branding .logo {
+                        width: 100px; /* Adjust the size as needed */
+                        height: auto;
+                        display: block;
+                        margin: 0 auto;
+                    }
+
+                    .branding h2 {
+                        color: #004080;
+                        margin: 10px 0 0;
+                    }
+                    .terms{
+                        font-size:12px;
+                        font-weight: 300;
+                    }
     </style>
 </head>
 <body>
     <div class="bookingcontainer">
-        <h1>Search for a booking</h1>
+
+        <h1>Search for your booking details</h1>
+        <p>Please enter your booking confirmation number to find your booking details</p>
         <form id="booking-form">
-            <input type="text" id="confirmationNumber" name="confirmationNumber" required placeholder="Enter your booking reference">
+            <input type="text" id="confirmationNumber" name="confirmationNumber" required placeholder="Confirmation Number">
             <button type="submit">Search</button>
         </form>
         <p id="error-message" class="error"></p>
-        <div id="booking-details" class="booking-details" style="display: none;">
+        <!--<div id="booking-details" class="booking-details" style="display: none;">
+            <img src="/images/logo.png" alt="image" class="branding">
             <h3>Booking Details</h3>
             <p><strong>Confirmation Number:</strong> <span id="booking-confirmation"></span></p>
             <p><strong>Passenger Name:</strong> <span id="name"></span></p>
@@ -146,40 +210,58 @@
             <p><strong>Return Price Type:</strong> <span id="return-pricetype"></span></p>
             <p><strong>Return Price:</strong> <span id="return-price"></span></p>
             <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
+        </div>-->
+        <div id="booking-details" class="booking-details" style="display:none">
+            <div class="header">
+                <img src="/images/logo.png" alt="Pacific Link Logo" class="branding">
+                <h4>Booking Details</h4>
+                <p style="color:green">Present the booking details at the gate to get the boarding pass and confirmed seat number</p>
+            </div>
+            <div class="info">
+                <p><strong>Confirmation Number:</strong> <span id="booking-confirmation"></span></p>
+                <p><strong>Passenger Name:</strong> <span id="name"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Phone:</strong> <span id="phoneContact"></span></p>
+            </div>
+            <div class="flight-details">
+                <h4>Outbound Flight</h4>
+                <p><strong>Flight:</strong> <span id="outbound-flight"></span></p>
+                <p><strong>Depart Time:</strong> <span id="outbound-depart-time"></span></p>
+                <p><strong>Arrive Time:</strong> <span id="outbound-arrive-time"></span></p>
+            </div>
+            <div class="flight-details">
+                <h4>Return Flight</h4>
+                <p><strong>Flight:</strong> <span id="return-flight"></span></p>
+                <p><strong>Depart Time:</strong> <span id="return-depart-time"></span></p>
+                <p><strong>Arrive Time:</strong> <span id="return-arrive-time"></span></p>
+            </div>
+            <div class="payment-details">
+                <p><strong>Payment Status:</strong> <span style="color:red" id="payment-status"></span></p>
+                <p><strong>Outbound Price Type:</strong> <span id="outbound-pricetype"></span></p>
+                <p><strong>Outbound Price:</strong> <span id="outbound-price"></span></p>
+                <p><strong>Return Price Type:</strong> <span id="return-pricetype"></span></p>
+                <p><strong>Return Price:</strong> <span id="return-price"></span></p>
+                <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
+            </div>
+            <div id="terms">
+                <p style="font-size: 12px">Terms and Conditions</p>
+                <p style="font-size: 12px">For Lite Class Type our customers are eligble to Meals, Drinks, Entertainment and 1 Carry-On Bag</p>
+                <p style="font-size: 12px">For Value Class Type our customers are eligble to Meals, Drinks, Entertainment, 1 Carry-On Bag and 1 Checked-Out Bag x 30kg</p>
+                <p style="font-size: 12px">If you wish to make changes to your bookings please feel free to contact us or create a request upgrade prior to your date of travel</p>
+            </div>
+          
         </div>
+
         <button type="button" id="requestupgrade" style="display: none;">Request Upgrade</button>
+        <!--<button type="button" id="bookingPdf" style="display: none;" onclick="BookingPdf()">Download Pdf</button>-->
+        <button class="pdf-button" id="bookingPdf" style="display:none" onclick="generatebookingPDF()">Download PDF</button>
     </div>
 
-    
+
+
     <div id="upgradeModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <!--<h2>Upgrade Options</h2>
-    <form id="upgradeForm" enctype="multipart/form-data">
-        <input type="text" id="ConfirmationNumber" name="ConfirmationNumber" required placeholder="Enter your booking reference">
-        <label for="EditPlan">Edit Plan</label>
-        <select id="EditPlan" name="EditPlan">
-            <option value="">Select an option</option>
-            <option value="no">no</option>
-            <option value="lite">Lite</option>
-            <option value="value">Value</option>
-        </select>
-
-        <label for="ApplyLoyaltyProgram">Apply for Loyalty Program</label>
-        <select id="ApplyLoyaltyProgram" name="ApplyLoyaltyProgram">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-        </select>
-
-        <label for="UploadDocuments">Upload Document</label>
-        <select id="UploadDocuments" name="UploadDocuments">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-        </select>
-
-        <div id="documentUpload" style="display: none;">
-            <input type="file" id="fileUpload" name="fileUpload">
-        </div>-->
             <h2>Add Request</h2>
             <form id="upgradeForm" enctype="multipart/form-data">
                 <div class="form-group">
@@ -195,10 +277,6 @@
                         <option value="5">Upload Doc</option>
                     </select>
                 </div>
-                <!--<div class="form-group hidden" id="uploadDocGroup">
-        <label for="document">Upload Document</label>
-        <input type="file" class="form-control-file" id="document" name="document" accept="image/*">
-    </div>-->
                 <div class="form-group" id="documentUpload" style="display:none;">
                     <label for="document">Upload Document</label>
                     <input type="file" class="form-control" id="document">
@@ -207,15 +285,14 @@
                     <label for="comment">Comment</label>
                     <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
                 </div>
-
-
                 <button type="submit" id="submitUpgradeRequest">Submit Upgrade Request</button>
             </form>
         </div>
     </div>
 
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#booking-form').on('submit', function (event) {
@@ -227,7 +304,7 @@
                     type: 'GET',
                     data: { confirmationNumber: confirmationNumber },
                     success: function (data) {
-                        console.log('Data returned from backend:', data); 
+                        console.log('Data returned from backend:', data);
                         if (data) {
                             $('#booking-confirmation').text(data.confirmationNumber);
                             $('#name').text(`${data.firstName} ${data.lastName}`);
@@ -248,28 +325,23 @@
 
                             $('#booking-details').show();
                             $('#requestupgrade').show();
+                            $('#bookingPdf').show();
                             $('#error-message').text('');
                         } else {
                             $('#booking-details').hide();
                             $('#requestupgrade').hide();
+                            $('#bookingPdf').hide();
                             $('#error-message').text('No booking found with the provided reference.');
                         }
                     },
                     error: function () {
                         $('#booking-details').hide();
                         $('#requestupgrade').hide();
+                        $('#bookingPdf').hide();
                         $('#error-message').text('An error occurred while searching for the booking.');
                     }
                 });
             });
-
-            //$('#action').change(function () {
-            //    if ($(this).val() == '5') {
-            //        $('#uploadDocGroup').removeClass('hidden');
-            //    } else {
-            //        $('#uploadDocGroup').addClass('hidden');
-            //    }
-            //});
 
             $('#action').change(function () {
                 if ($(this).val() == '5') {
@@ -279,13 +351,7 @@
                 }
             });
 
-            // Trigger the change event on page load to set the correct initial state
             $('#action').trigger('change');
-
-
-
-
-
 
             $('#requestupgrade').on('click', function () {
                 $('#upgradeModal').css('display', 'block');
@@ -294,26 +360,21 @@
             $('.close').on('click', function () {
                 $('#upgradeModal').css('display', 'none');
             });
-
-            //$('#UploadDocuments').on('change', function () {
-            //    const selectedOption = $(this).val();
-            //    if (selectedOption === 'yes') {
-            //        // If "Yes" is selected, show the file upload input
-            //        $('#documentUpload').show();
-            //    } else {
-            //        // If "No" or any other option is selected, hide the file upload input
-            //        $('#documentUpload').hide();
-            //    }
-            //});
-
-
-           
-
-          
         });
 
+        function generatebookingPDF() {
+            const element = document.querySelector('.booking-details');
+            html2pdf(element, {
+                margin: 1,
+                filename: 'BookingDetails.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            });
+        }
     </script>
-    
+
 </body>
 </html>
+
 

@@ -193,6 +193,18 @@
       "PackagePath": "staticwebassets\\fonts\\open-iconic\\open-iconic.woff"
     },
     {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\Tonga.jpg",
+      "PackagePath": "staticwebassets\\images\\Tonga.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\Tuvalu.jpg",
+      "PackagePath": "staticwebassets\\images\\Tuvalu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\Vanuatu.jpg",
+      "PackagePath": "staticwebassets\\images\\Vanuatu.jpg"
+    },
+    {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\about-1.jpg",
       "PackagePath": "staticwebassets\\images\\about-1.jpg"
     },
@@ -309,6 +321,10 @@
       "PackagePath": "staticwebassets\\images\\loc.png"
     },
     {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\person_1.jpg",
       "PackagePath": "staticwebassets\\images\\person_1.jpg"
     },
@@ -347,10 +363,6 @@
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\samoa.jpg",
       "PackagePath": "staticwebassets\\images\\samoa.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\images\\vanuatu.jpg",
-      "PackagePath": "staticwebassets\\images\\vanuatu.jpg"
     },
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\app.js",
@@ -11663,6 +11675,10 @@
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\paymentrequest.html",
       "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\paymentrequest.html"
+    },
+    {
+      "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\pdfbooking.html",
+      "PackagePath": "staticwebassets\\js2\\src\\home\\temp\\pdfbooking.html"
     },
     {
       "Id": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\wwwroot\\js2\\src\\home\\temp\\requestform.html",

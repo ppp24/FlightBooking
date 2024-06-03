@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .booking-container {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .header img {
+                width: 100%;
+            }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+            .details div {
+                flex: 1;
+            }
+
+                .details div:last-child {
+                    text-align: right;
+                }
+
+                .details div:not(:last-child) {
+                    margin-right: 10px;
+                }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <div class="header">
+            <h2>Flight Booking Details</h2>
+        </div>
+        <div class="section">
+            <div class="details">
+                <div>Seat Class</div>
+                <div>Business Class</div>
+            </div>
+            <div class="details">
+                <div>Extra Baggage Allowance</div>
+                <div>8</div>
+            </div>
+            <div class="details">
+                <div>Seat Number</div>
+                <div>3-A</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="details">
+                <div>Booking Date</div>
+                <div>Saturday, December 3, 2022</div>
+            </div>
+            <div class="details">
+                <div>Guest Name</div>
+                <div>Miss Stephanie Celine Linden</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Flight Details</div>
+            <div class="details">
+                <div>From</div>
+                <div>New York</div>
+            </div>
+            <div class="details">
+                <div>Airline</div>
+                <div>ACME Airlines</div>
+            </div>
+            <div class="details">
+                <div>Departure Date</div>
+                <div>Tuesday, December 20, 2022 06:30</div>
+            </div>
+            <div class="details">
+                <div>Arrival Date</div>
+                <div>Tuesday, December 6, 2022 23:30</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="details">
+                <div>To</div>
+                <div>London</div>
+            </div>
+            <div class="details">
+                <div>Flight Number</div>
+                <div>AA7755</div>
+            </div>
+            <div class="details">
+                <div>Departure Terminal</div>
+                <div>Terminal 1</div>
+            </div>
+            <div class="details">
+                <div>Arrival Terminal</div>
+                <div>Terminal 5</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function generatebookingPDF() {
+        const element = document.querySelector('.bookingpdf');
+        html2pdf(element, {
+            margin: 1,
+            filename: 'BookingDetails.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        });
+    }
+</script>
