@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
               "ToolTip": "C:\\Users\\Richelle\\Documents\\GitHub\\FlightBooking\\FlightBooking\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAYwAwAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-03T11:45:42.032Z",
               "EditorCaption": ""
@@ -79,8 +79,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
               "ViewState": "AQIAADYAAAAAAAAAAAAAADYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T11:45:25.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:45:25.069Z"
             },
             {
               "$type": "Document",
@@ -92,8 +91,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T11:44:01.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:44:01.017Z"
             },
             {
               "$type": "Document",
@@ -105,8 +103,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAAABwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T11:32:27.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:32:27.473Z"
             },
             {
               "$type": "Document",
@@ -118,8 +115,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAuwDQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T11:32:27.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:32:27.473Z"
             },
             {
               "$type": "Document",
@@ -131,8 +127,7 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAC0AAAAAAAAAAAAIwEYAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T11:42:44.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:42:44.74Z"
             },
             {
               "$type": "Document",
@@ -144,8 +139,7 @@
               "RelativeToolTip": "wwwroot\\js2\\src\\admin\\temp\\airporttbl.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-06-03T11:38:21.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:38:21.502Z"
             },
             {
               "$type": "Document",
@@ -157,8 +151,7 @@
               "RelativeToolTip": "Views\\Shared\\_LayoutFlightBooking.cshtml",
               "ViewState": "AQIAADgAAAAAAAAAAAAkwEwAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T11:41:05.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:41:05.184Z"
             },
             {
               "$type": "Document",
@@ -170,8 +163,7 @@
               "RelativeToolTip": "wwwroot\\js2\\src\\admin\\temp\\flightrow.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-06-03T11:37:52.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:37:52.516Z"
             },
             {
               "$type": "Document",
@@ -183,8 +175,7 @@
               "RelativeToolTip": "Controllers\\AdminController.cs",
               "ViewState": "AQIAAIkAAAAAAAAAAAAQwJ4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T11:32:27.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:32:27.426Z"
             },
             {
               "$type": "Document",
@@ -196,8 +187,7 @@
               "RelativeToolTip": "wwwroot\\js2\\src\\admin\\view\\admin.js",
               "ViewState": "AQIAAGEBAAAAAAAAAAAowGkBAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-06-03T11:31:27.301Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T11:31:27.301Z"
             }
           ]
         }
