@@ -80,7 +80,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public virtual DbSet<TblPassengerDetails> TblPassengerDetails { get; set; }
     public virtual DbSet<TblPayments> TblPayments { get; set; }
     public virtual DbSet<TblRequests> TblRequests { get; set; }
-    //public virtual DbSet<TblFlightHistory> TblFlightHistory { get; set; }
+    public virtual DbSet<TblAuditLog> TblAuditLog { get; set; }
 
 
 

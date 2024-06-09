@@ -37,6 +37,11 @@ namespace FlightBooking.Controllers
             return View();
         }
 
+        public async Task<IActionResult> SystemAudit()
+        {
+            var logs = await _context.TblAuditLog.ToListAsync();
+            return View(logs);
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAirports()
@@ -182,6 +187,7 @@ namespace FlightBooking.Controllers
             }
         }
 
+       
     }
 
 }

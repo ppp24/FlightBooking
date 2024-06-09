@@ -90,25 +90,28 @@
     </div>
 </div>
 
-
-<!--<script>
-    // Get all radio buttons
-    const radioButtons = document.querySelectorAll('input[type="radio"]');
-
-    // Add change event listener to each radio button
-    radioButtons.forEach(button => {
-        button.addEventListener('change', function () {
-            // Get the parent card element
-            const card = this.closest('.card');
-
-            // Check if the radio button is checked
-            if (this.checked) {
-                // Update the border color of the parent card to blue
+<script>
+    // Function to update border color based on radio button state
+    function updateBorderColor() {
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(button => {
+            const card = button.closest('.card');
+            if (button.checked) {
                 card.style.borderColor = 'blue';
             } else {
-                // If not checked, reset the border color
                 card.style.borderColor = 'transparent';
             }
         });
+    }
+
+    // Call the function to set initial border color
+    updateBorderColor();
+
+    // Add change event listener to each radio button
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(button => {
+        button.addEventListener('change', updateBorderColor);
     });
-</script>-->
+</script>
+
+

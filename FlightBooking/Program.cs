@@ -7,6 +7,7 @@ using System.Data;
 using FlightBooking.Services;
 using Twilio;
 using System.Configuration;
+using FlightBooking.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
@@ -119,6 +120,7 @@ app.UseRouting();
 app.UseAuthentication();;
 
 app.UseAuthorization();
+app.UseMiddleware<AuditMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<FlightBooking.Areas.Identity.Data.TblAuditLog>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <style>
+        /* Custom CSS for table */
+        #logsTable {
+            margin-top: 5%;
+            width: 100%;
+            border-collapse: collapse;
+            padding: 
+        }
+
+            #logsTable th, #logsTable td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            #logsTable th {
+                background-color: #f2f2f2;
+                color: #333;
+                font-weight: bold;
+            }
+
+            #logsTable tbody tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #logsTable tbody tr:hover {
+                background-color: #ddd;
+            }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#logsTable').DataTable();
+        });
+    </script>
+}
+
+<h2 style="margin-top:5%">User Logs</h2>
+
+<table id="logsTable" class="display">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>UserId</th>
+            <th>Email</th>
+            <th>Action</th>
+            <th>Timestamp</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>@log.Id</td>
+                <td>@log.UserId</td>
+                <td>@log.UserName</td>
+                <td>@log.Action</td>
+                <td>@log.Timestamp</td>
+                <td>@log.Details</td>
+            </tr>
+        }
+    </tbody>
+</table>
